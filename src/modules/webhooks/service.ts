@@ -1,4 +1,4 @@
-import { and, desc, eq, sql } from 'drizzle-orm';
+﻿import { and, desc, eq, sql } from 'drizzle-orm';
 import { status } from 'elysia';
 import { db, webhooks } from '@/db';
 import { hmacSha256, randomHex } from '@/lib/crypto';
@@ -8,15 +8,15 @@ import { WEBHOOK_EVENTS, type WebhooksModel } from './model';
 export abstract class Webhooks {
   static async create({ url, events }: WebhooksModel['createBody']) {
     const validUrl = validateUrl(url);
-    if (validUrl === null) return status(400, { error: 'Geçerli bir URL gerekli' });
+    if (validUrl === null) return status(400, { error: 'A valid URL is required' });
 
     const validEvents = events.filter((e) => (WEBHOOK_EVENTS as readonly string[]).includes(e));
     if (validEvents.length === 0)
-      return status(400, { error: `Geçerli event türleri: ${WEBHOOK_EVENTS.join(', ')}` });
+      return status(400, { error: `Valid event types: ${WEBHOOK_EVENTS.join(', ')}` });
 
     const secret = randomHex(16);
     const [row] = await db.insert(webhooks).values({ url: validUrl, events: [...new Set(validEvents)], secret }).returning({ id: webhooks.id });
-    return status(201, { success: true, webhook_id: row!.id, secret, message: 'Webhook oluşturuldu' });
+    return status(201, { success: true, webhook_id: row!.id, secret, message: 'Webhook created' });
   }
 
   static async list() {
@@ -78,3 +78,4 @@ export abstract class Webhooks {
     }
   }
 }
+

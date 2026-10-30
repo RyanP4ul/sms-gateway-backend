@@ -1,4 +1,4 @@
-import { desc, eq, sql } from 'drizzle-orm';
+﻿import { desc, eq, sql } from 'drizzle-orm';
 import { status } from 'elysia';
 import { autoscaleHistory, autoscaleRules, db } from '@/db';
 import type { RequestMeta } from '@/lib/request';
@@ -11,7 +11,7 @@ export abstract class Autoscale {
     const up = Math.trunc(body.scale_up_threshold);
     const down = Math.trunc(body.scale_down_threshold);
     if (name === '') return status(400, { error: 'rule_name ve metric zorunludur' });
-    if (up <= down) return status(400, { error: 'scale_up_threshold, scale_down_threshold dan büyük olmalı' });
+    if (up <= down) return status(400, { error: 'scale_up_threshold must be greater than scale_down_threshold' });
 
     const [row] = await db
       .insert(autoscaleRules)
@@ -26,7 +26,7 @@ export abstract class Autoscale {
       })
       .returning({ id: autoscaleRules.id });
     await Audit.log({ action: 'autoscale_rule.created', actorType: 'admin', details: { rule_name: name, metric: body.metric }, meta });
-    return status(201, { success: true, rule_id: row!.id, message: 'Ölçeklendirme kuralı oluşturuldu' });
+    return status(201, { success: true, rule_id: row!.id, message: 'Autoscaling rule created' });
   }
 
   static async list() {
@@ -35,9 +35,9 @@ export abstract class Autoscale {
 
   static async remove(id: number, meta: RequestMeta) {
     const deleted = await db.delete(autoscaleRules).where(eq(autoscaleRules.id, id)).returning({ id: autoscaleRules.id });
-    if (deleted.length === 0) return status(404, { error: 'Kural bulunamadı' });
+    if (deleted.length === 0) return status(404, { error: 'Rule not found' });
     await Audit.log({ action: 'autoscale_rule.deleted', actorType: 'admin', details: { rule_id: id }, meta });
-    return { success: true, message: 'Kural silindi' };
+    return { success: true, message: 'Rule deleted' };
   }
 
   static async toggle({ id }: AutoscaleModel['toggleBody'], meta: RequestMeta) {
@@ -46,9 +46,9 @@ export abstract class Autoscale {
       .set({ is_active: sql`not ${autoscaleRules.is_active}` })
       .where(eq(autoscaleRules.id, Math.trunc(id)))
       .returning({ is_active: autoscaleRules.is_active });
-    if (!row) return status(404, { error: 'Kural bulunamadı' });
+    if (!row) return status(404, { error: 'Rule not found' });
     await Audit.log({ action: 'autoscale_rule.toggled', actorType: 'admin', details: { rule_id: id, is_active: row.is_active }, meta });
-    return { success: true, is_active: row.is_active, message: row.is_active ? 'Kural aktifleştirildi' : 'Kural devre dışı bırakıldı' };
+    return { success: true, is_active: row.is_active, message: row.is_active ? 'Rule enabled' : 'Rule disabled' };
   }
 
   static async history({ limit }: AutoscaleModel['historyQuery']) {
@@ -66,3 +66,4 @@ export abstract class Autoscale {
     return { success: true, history };
   }
 }
+

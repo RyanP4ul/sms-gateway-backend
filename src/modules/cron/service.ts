@@ -1,4 +1,4 @@
-import { and, asc, desc, eq, isNull, sql } from 'drizzle-orm';
+﻿import { and, asc, desc, eq, isNull, sql } from 'drizzle-orm';
 import {
   anomalyEvents, anomalyRules, apiKeyHistory, auditLogs, autoscaleHistory, autoscaleRules, db, deviceCommands, deviceScoreHistory,
   devices, otpCodes, rateLimits, shortLinks, smsRequests, uptimeChecks,
@@ -24,7 +24,7 @@ export abstract class Cron {
       for (const [name, job] of Object.entries(Cron.jobs)) {
         try { await job(); } catch (error) { console.error(`Cron job "${name}" failed:`, error); }
       }
-      log('Cron tamamlandı');
+      log('Cron completed');
     } finally {
       Cron.running = false;
     }
@@ -33,7 +33,7 @@ export abstract class Cron {
   static readonly jobs: Record<string, () => Promise<void>> = {
     cleanRateLimits: async () => {
       const r = await db.delete(rateLimits).where(sql`${rateLimits.window_start} < ${agoMinutes(5)}`).returning({ id: rateLimits.id });
-      if (r.length) log(`Rate limit temizlendi: ${r.length} kayıt`);
+      if (r.length) log(`Rate limits cleaned: ${r.length} records`);
     },
 
     /** #2 Failed → pending once the back-off has elapsed. */
@@ -43,13 +43,13 @@ export abstract class Cron {
         .set({ status: 'pending' })
         .where(and(eq(s.status, 'failed'), sql`${s.retry_count} < ${s.max_retries} and ${s.next_retry_at} is not null and ${s.next_retry_at} <= now()`))
         .returning({ id: s.id });
-      if (r.length) log(`Yeniden deneme kuyruğuna eklendi: ${r.length} SMS`);
+      if (r.length) log(`Added back to retry queue: ${r.length} SMS`);
     },
 
     /** #3 "processing" for 5+ minutes means the device vanished — put it back. */
     releaseStuck: async () => {
       const r = await db.update(s).set({ status: 'pending' }).where(and(eq(s.status, 'processing'), sql`${s.updated_at} < ${agoMinutes(5)}`)).returning({ id: s.id });
-      if (r.length) log(`Takılı SMS serbest bırakıldı: ${r.length}`);
+      if (r.length) log(`Stuck SMS released: ${r.length}`);
     },
 
     detectOffline: async () => {
@@ -57,7 +57,7 @@ export abstract class Cron {
         .select({ device_id: devices.device_id, secs: sql<number>`extract(epoch from (now() - ${devices.last_seen}))::int` })
         .from(devices)
         .where(and(isNull(devices.deleted_at), eq(devices.is_active, true), sql`${devices.last_seen} is not null and ${devices.last_seen} < ${ago(OFFLINE)}`));
-      for (const d of rows) log(`Offline cihaz: ${d.device_id} (${d.secs}s)`);
+      for (const d of rows) log(`Offline device: ${d.device_id} (${d.secs}s)`);
     },
 
     /** #5 Finished messages older than 90 days. */
@@ -66,12 +66,12 @@ export abstract class Cron {
         .delete(s)
         .where(and(sql`${s.status} in ('sent','delivered','cancelled','failed')`, sql`${s.created_at} < ${agoDays(90)}`, sql`${s.retry_count} >= ${s.max_retries}`))
         .returning({ id: s.id });
-      if (r.length) log(`Arşivlendi/silindi: ${r.length} eski SMS`);
+      if (r.length) log(`Archived/deleted: ${r.length} old SMS`);
     },
 
     purgeOldAudit: async () => {
       const r = await db.delete(auditLogs).where(sql`${auditLogs.created_at} < ${agoDays(180)}`).returning({ id: auditLogs.id });
-      if (r.length) log(`Audit log temizlendi: ${r.length} kayıt`);
+      if (r.length) log(`Audit log cleaned: ${r.length} records`);
     },
 
     dailyStats: async () => {
@@ -150,7 +150,7 @@ export abstract class Cron {
         if (recent) continue;
 
         await db.insert(anomalyEvents).values({ rule_id: rule.id, details, action_taken: rule.action_type });
-        log(`Anomali tespit: ${rule.rule_name} [${rule.action_type}]`);
+        log(`Anomaly detected: ${rule.rule_name} [${rule.action_type}]`);
 
         if (rule.action_type === 'block_device' && blockDevices.length) {
           await db.update(devices).set({ is_active: false }).where(sql`${devices.device_id} in ${blockDevices}`);
@@ -234,7 +234,7 @@ export abstract class Cron {
         .set({ is_active: false })
         .where(and(eq(apiKeyHistory.is_active, true), sql`${apiKeyHistory.expires_at} is not null and ${apiKeyHistory.expires_at} < now()`))
         .returning({ id: apiKeyHistory.id });
-      if (expired.length) log(`Süresi dolmuş API key: ${expired.length}`);
+      if (expired.length) log(`Expired API key: ${expired.length}`);
     },
 
     autoscale: async () => {
@@ -271,11 +271,11 @@ export abstract class Cron {
 
         if (value >= rule.scale_up_threshold && activeCount < rule.max_devices) {
           const [d] = await db.select({ device_id: devices.device_id }).from(devices).where(and(eq(devices.is_active, false), isNull(devices.deleted_at))).orderBy(desc(devices.performance_score)).limit(1);
-          if (d) { await db.update(devices).set({ is_active: true }).where(eq(devices.device_id, d.device_id)); action = 'scale_up'; target = d.device_id; log(`Auto-Scale UP: ${d.device_id} aktifleştirildi (metric: ${value})`); }
+          if (d) { await db.update(devices).set({ is_active: true }).where(eq(devices.device_id, d.device_id)); action = 'scale_up'; target = d.device_id; log(`Auto-Scale UP: ${d.device_id} enabled (metric: ${value})`); }
         }
         if (value <= rule.scale_down_threshold && activeCount > rule.min_devices) {
           const [d] = await db.select({ device_id: devices.device_id }).from(devices).where(and(eq(devices.is_active, true), isNull(devices.deleted_at))).orderBy(asc(devices.performance_score)).limit(1);
-          if (d) { await db.update(devices).set({ is_active: false }).where(eq(devices.device_id, d.device_id)); action = 'scale_down'; target = d.device_id; log(`Auto-Scale DOWN: ${d.device_id} devre dışı bırakıldı (metric: ${value})`); }
+          if (d) { await db.update(devices).set({ is_active: false }).where(eq(devices.device_id, d.device_id)); action = 'scale_down'; target = d.device_id; log(`Auto-Scale DOWN: ${d.device_id} disabled (metric: ${value})`); }
         }
 
         if (action) {
@@ -295,7 +295,7 @@ export abstract class Cron {
         .set({ status: 'expired' })
         .where(and(eq(deviceCommands.status, 'pending'), sql`${deviceCommands.expires_at} is not null and ${deviceCommands.expires_at} < now()`))
         .returning({ id: deviceCommands.id });
-      if (r.length) log(`Süresi dolmuş komut: ${r.length}`);
+      if (r.length) log(`Expired command: ${r.length}`);
     },
 
     /** #20 Derive public status-page component states from live metrics. */
@@ -327,3 +327,4 @@ export abstract class Cron {
     },
   };
 }
+

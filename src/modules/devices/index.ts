@@ -1,4 +1,4 @@
-import { Elysia } from 'elysia';
+﻿import { Elysia } from 'elysia';
 import { auth } from '@/plugins/auth';
 import { RateLimit } from '@/plugins/rate-limit';
 import { DevicesModel } from './model';
@@ -11,7 +11,7 @@ export const devicesModule = new Elysia({ prefix: '/devices', tags: ['Devices'] 
     '/register',
     async ({ body, meta, status }) => {
       const limit = await RateLimit.hit(meta.ip, 'register');
-      if (!limit.allowed) return status(429, { error: 'Çok fazla kayıt denemesi' });
+      if (!limit.allowed) return status(429, { error: 'Too many registration attempts' });
       return Devices.register(body, meta);
     },
     { registration: true, body: DevicesModel.registerBody },
@@ -25,3 +25,4 @@ export const devicesModule = new Elysia({ prefix: '/devices', tags: ['Devices'] 
   .post('/weight', ({ body }) => Devices.updateWeight(body), { admin: true, body: DevicesModel.weightBody })
   .post('/rotate-key', ({ body, meta }) => Devices.rotateKey(body, meta), { admin: true, body: DevicesModel.rotateBody })
   .delete('/:device_id', ({ params, meta }) => Devices.remove(params.device_id, meta), { admin: true, params: DevicesModel.params });
+

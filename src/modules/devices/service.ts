@@ -1,4 +1,4 @@
-import { and, desc, eq, getTableColumns, gt, inArray, isNull, sql } from 'drizzle-orm';
+﻿import { and, desc, eq, getTableColumns, gt, inArray, isNull, sql } from 'drizzle-orm';
 import { status } from 'elysia';
 import { apiKeyHistory, db, deviceScoreHistory, devices, smsRequests } from '@/db';
 import { generateApiKey, sha256 } from '@/lib/crypto';
@@ -28,8 +28,8 @@ export abstract class Devices {
   static async authenticate(
     apiKey: string | undefined,
   ): Promise<{ device_id: string } | { error: string; code: 401 | 403 | 410 }> {
-    if (!apiKey) return { error: 'API Key gerekli', code: 401 };
-    if (apiKey.length !== 64) return { error: 'Geçersiz API Key formatı', code: 401 };
+    if (!apiKey) return { error: 'API key required', code: 401 };
+    if (apiKey.length !== 64) return { error: 'Invalid API key format', code: 401 };
 
     const keyHash = sha256(apiKey);
     const pick = { device_id: devices.device_id, is_active: devices.is_active, deleted_at: devices.deleted_at };
@@ -45,17 +45,17 @@ export abstract class Devices {
       if (old) [device] = await db.select(pick).from(devices).where(eq(devices.device_id, old.device_id)).limit(1);
     }
 
-    if (!device) return { error: 'Geçersiz API Key', code: 401 };
-    if (device.deleted_at !== null) return { error: 'Cihaz silinmiş', code: 410 };
-    if (!device.is_active) return { error: 'Cihaz aktif değil', code: 403 };
+    if (!device) return { error: 'Invalid API key', code: 401 };
+    if (device.deleted_at !== null) return { error: 'Device deleted', code: 410 };
+    if (!device.is_active) return { error: 'Device is inactive', code: 403 };
     return { device_id: device.device_id };
   }
 
   static async register(body: DevicesModel['registerBody'], meta: RequestMeta) {
     const deviceId = validateDeviceId(body.device_id);
-    if (deviceId === null) return status(400, { error: 'Geçerli bir device_id gerekli (alfanümerik, tire, alt çizgi)' });
+    if (deviceId === null) return status(400, { error: 'A valid device_id is required (alphanumeric, hyphen, underscore)' });
 
-    const deviceName = validateDeviceName(body.device_name ?? 'Bilinmeyen Cihaz');
+    const deviceName = validateDeviceName(body.device_name ?? 'Unknown device');
     const phone = body.phone_number !== undefined ? validatePhoneNumber(body.phone_number) : null;
     const info: Record<string, unknown> = body.device_info ?? {};
     const sdk = Number(info.sdk_version);
@@ -99,8 +99,8 @@ export abstract class Devices {
       await Audit.log({ action: reactivated ? 'device.reactivated' : 'device.key_rotated', actorType: 'device', actorId: deviceId, meta });
 
       return reactivated
-        ? status(201, { success: true, message: 'Cihaz yeniden aktifleştirildi', api_key: apiKey })
-        : { success: true, message: 'Cihaz zaten kayıtlı, yeni API Key üretildi', api_key: apiKey };
+        ? status(201, { success: true, message: 'Device reactivated', api_key: apiKey })
+        : { success: true, message: 'Device already registered, new API key generated', api_key: apiKey };
     }
 
     await db.insert(devices).values({
@@ -114,7 +114,7 @@ export abstract class Devices {
     });
     await Audit.log({ action: 'device.registered', actorType: 'device', actorId: deviceId, meta });
     Webhooks.trigger('device.registered', { device_id: deviceId });
-    return status(201, { success: true, message: 'Cihaz kaydedildi', api_key: apiKey });
+    return status(201, { success: true, message: 'Device saved', api_key: apiKey });
   }
 
   static async list() {
@@ -133,7 +133,7 @@ export abstract class Devices {
 
   static async toggle({ device_id, is_active }: DevicesModel['toggleBody'], meta: RequestMeta) {
     const deviceId = validateDeviceId(device_id);
-    if (deviceId === null) return status(400, { error: 'Geçerli bir device_id gerekli' });
+    if (deviceId === null) return status(400, { error: 'A valid device_id is required' });
 
     const next = is_active === undefined ? sql`not ${devices.is_active}` : Boolean(is_active);
     const updated = await db
@@ -141,16 +141,16 @@ export abstract class Devices {
       .set({ is_active: next })
       .where(and(eq(devices.device_id, deviceId), isNull(devices.deleted_at)))
       .returning({ id: devices.id });
-    if (updated.length === 0) return status(404, { error: 'Cihaz bulunamadı' });
+    if (updated.length === 0) return status(404, { error: 'Device not found' });
 
     await Audit.log({ action: 'device.toggled', actorType: 'admin', actorId: deviceId, meta });
-    return { success: true, message: 'Cihaz durumu güncellendi' };
+    return { success: true, message: 'Device status updated' };
   }
 
   /** Soft delete; queued messages for the device are cancelled. */
   static async remove(rawId: string, meta: RequestMeta) {
     const deviceId = validateDeviceId(rawId);
-    if (deviceId === null) return status(400, { error: 'Geçerli bir device_id gerekli' });
+    if (deviceId === null) return status(400, { error: 'A valid device_id is required' });
 
     const deleted = await db.transaction(async (tx) => {
       const rows = await tx
@@ -165,10 +165,10 @@ export abstract class Devices {
         .where(and(eq(smsRequests.device_id, deviceId), inArray(smsRequests.status, ['pending', 'processing'])));
       return true;
     });
-    if (!deleted) return status(404, { error: 'Cihaz bulunamadı' });
+    if (!deleted) return status(404, { error: 'Device not found' });
 
     await Audit.log({ action: 'device.deleted', actorType: 'admin', actorId: deviceId, meta });
-    return { success: true, message: 'Cihaz silindi' };
+    return { success: true, message: 'Device deleted' };
   }
 
   static async health() {
@@ -237,36 +237,36 @@ export abstract class Devices {
 
   static async updateCost({ device_id, cost_per_sms }: DevicesModel['costBody']) {
     const deviceId = validateDeviceId(device_id);
-    if (deviceId === null) return status(400, { error: 'device_id gerekli' });
-    if (!(cost_per_sms >= 0)) return status(400, { error: 'cost_per_sms 0 veya pozitif olmalı' });
+    if (deviceId === null) return status(400, { error: 'device_id is required' });
+    if (!(cost_per_sms >= 0)) return status(400, { error: 'cost_per_sms must be 0 or greater' });
 
     const updated = await db
       .update(devices)
       .set({ cost_per_sms })
       .where(and(eq(devices.device_id, deviceId), isNull(devices.deleted_at)))
       .returning({ id: devices.id });
-    if (updated.length === 0) return status(404, { error: 'Cihaz bulunamadı' });
-    return { success: true, message: 'SMS maliyeti güncellendi' };
+    if (updated.length === 0) return status(404, { error: 'Device not found' });
+    return { success: true, message: 'SMS cost updated' };
   }
 
   /** Load-balancing weight, clamped to 1–100 (new in v4: the PHP API had no way to change it). */
   static async updateWeight({ device_id, weight }: DevicesModel['weightBody']) {
     const deviceId = validateDeviceId(device_id);
-    if (deviceId === null) return status(400, { error: 'device_id gerekli' });
+    if (deviceId === null) return status(400, { error: 'device_id is required' });
     const w = Math.max(1, Math.min(100, Math.trunc(weight)));
     const updated = await db
       .update(devices)
       .set({ weight: w })
       .where(and(eq(devices.device_id, deviceId), isNull(devices.deleted_at)))
       .returning({ id: devices.id });
-    if (updated.length === 0) return status(404, { error: 'Cihaz bulunamadı' });
-    return { success: true, weight: w, message: 'Ağırlık güncellendi' };
+    if (updated.length === 0) return status(404, { error: 'Device not found' });
+    return { success: true, weight: w, message: 'Weight updated' };
   }
 
   /** Rotate a device key; the previous key keeps working for 24 hours. */
   static async rotateKey({ device_id }: DevicesModel['rotateBody'], meta: RequestMeta) {
     const deviceId = validateDeviceId(device_id);
-    if (deviceId === null) return status(400, { error: 'device_id gerekli' });
+    if (deviceId === null) return status(400, { error: 'device_id is required' });
 
     const next = generateApiKey();
     const found = await db.transaction(async (tx) => {
@@ -292,14 +292,14 @@ export abstract class Devices {
       await tx.update(devices).set({ api_key_hash: next.keyHash, api_key_prefix: next.keyPrefix }).where(eq(devices.device_id, deviceId));
       return true;
     });
-    if (!found) return status(404, { error: 'Cihaz bulunamadı' });
+    if (!found) return status(404, { error: 'Device not found' });
 
     await Audit.log({ action: 'device.key_rotated', actorType: 'admin', actorId: deviceId, meta });
     return {
       success: true,
       new_api_key: next.apiKey,
-      grace_period: '24 saat (eski key bu süre boyunca çalışmaya devam eder)',
-      message: 'API Key başarıyla değiştirildi',
+      grace_period: '24 hours (the old key will keep working during this period)',
+      message: 'API key changed successfully',
     };
   }
 
@@ -322,3 +322,4 @@ export abstract class Devices {
     return { success: true, history: rows };
   }
 }
+

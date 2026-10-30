@@ -1,4 +1,4 @@
-import { and, desc, eq, inArray } from 'drizzle-orm';
+﻿import { and, desc, eq, inArray } from 'drizzle-orm';
 import { status } from 'elysia';
 import { db, phoneBlacklist, smsRequests } from '@/db';
 import type { RequestMeta } from '@/lib/request';
@@ -27,14 +27,14 @@ export abstract class Blacklist {
 
   static async add({ phone_number, reason }: BlacklistModel['addBody'], meta: RequestMeta) {
     const phone = validatePhoneNumber(phone_number);
-    if (phone === null) return status(400, { error: 'Geçerli bir telefon numarası gerekli' });
+    if (phone === null) return status(400, { error: 'A valid phone number is required' });
 
     const inserted = await db
       .insert(phoneBlacklist)
       .values({ phone_number: phone, reason: reason ? [...reason.trim()].slice(0, 255).join('') : null })
       .onConflictDoNothing()
       .returning({ id: phoneBlacklist.id });
-    if (inserted.length === 0) return status(409, { error: 'Bu numara zaten kara listede' });
+    if (inserted.length === 0) return status(409, { error: 'This number is already blacklisted' });
 
     // Queued messages to this number are no longer allowed to go out.
     await db
@@ -43,7 +43,7 @@ export abstract class Blacklist {
       .where(and(eq(smsRequests.phone_number, phone), inArray(smsRequests.status, ['pending', 'processing'])));
 
     await Audit.log({ action: 'blacklist.added', actorType: 'admin', details: { phone: maskPhone(phone) }, meta });
-    return status(201, { success: true, message: 'Numara kara listeye eklendi' });
+    return status(201, { success: true, message: 'Number added to blacklist' });
   }
 
   static async list() {
@@ -56,12 +56,13 @@ export abstract class Blacklist {
 
   static async remove(rawPhone: string, meta: RequestMeta) {
     const phone = validatePhoneNumber(rawPhone);
-    if (phone === null) return status(400, { error: 'Geçerli bir telefon numarası gerekli' });
+    if (phone === null) return status(400, { error: 'A valid phone number is required' });
 
     const deleted = await db.delete(phoneBlacklist).where(eq(phoneBlacklist.phone_number, phone)).returning({ id: phoneBlacklist.id });
-    if (deleted.length === 0) return status(404, { error: 'Numara kara listede bulunamadı' });
+    if (deleted.length === 0) return status(404, { error: 'Number not found in blacklist' });
 
     await Audit.log({ action: 'blacklist.removed', actorType: 'admin', details: { phone: maskPhone(phone) }, meta });
-    return { success: true, message: 'Numara kara listeden kaldırıldı' };
+    return { success: true, message: 'Number removed from blacklist' };
   }
 }
+

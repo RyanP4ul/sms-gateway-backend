@@ -1,4 +1,4 @@
-import { eq } from 'drizzle-orm';
+﻿import { eq } from 'drizzle-orm';
 import { status } from 'elysia';
 import { apiVersions, db } from '@/db';
 import type { RequestMeta } from '@/lib/request';
@@ -15,11 +15,11 @@ export abstract class ApiVersions {
   /** Create the version if it doesn't exist, otherwise update the supplied fields. */
   static async upsert(body: ApiVersionsModel['upsertBody'], meta: RequestMeta) {
     const version = body.version.trim();
-    if (version === '' || version.length > 10) return status(400, { error: 'version zorunludur' });
+    if (version === '' || version.length > 10) return status(400, { error: 'version is required' });
 
     const deprecated = toDate(body.deprecated_at);
     const sunset = toDate(body.sunset_at);
-    if ([deprecated, sunset].some((d) => d instanceof Date && Number.isNaN(d.getTime()))) return status(400, { error: 'Geçersiz tarih' });
+    if ([deprecated, sunset].some((d) => d instanceof Date && Number.isNaN(d.getTime()))) return status(400, { error: 'Invalid date' });
 
     const isActive = body.is_active === undefined ? undefined : Boolean(body.is_active);
     const isDefault = body.is_default === undefined ? undefined : Boolean(body.is_default);
@@ -41,6 +41,7 @@ export abstract class ApiVersions {
     });
 
     await Audit.log({ action: 'api_version.updated', actorType: 'admin', details: { version }, meta });
-    return { success: true, message: `API versiyon güncellendi: ${version}` };
+    return { success: true, message: `API version updated: ${version}` };
   }
 }
+

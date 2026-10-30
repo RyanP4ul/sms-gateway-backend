@@ -1,4 +1,4 @@
-import { and, asc, eq, sql } from 'drizzle-orm';
+﻿import { and, asc, eq, sql } from 'drizzle-orm';
 import { status } from 'elysia';
 import { db, smsTemplates } from '@/db';
 import { applyTemplate } from '@/lib/validation';
@@ -8,11 +8,11 @@ export abstract class Templates {
   static async create({ name, content, variables }: TemplatesModel['createBody']) {
     const n = name.trim();
     const c = content.trim();
-    if (n === '' || n.length > 100) return status(400, { error: 'Şablon adı gerekli (maks 100 karakter)' });
-    if (c === '') return status(400, { error: 'Şablon içeriği gerekli' });
+    if (n === '' || n.length > 100) return status(400, { error: 'Template name is required (max 100 characters)' });
+    if (c === '') return status(400, { error: 'Template content is required' });
 
     const [row] = await db.insert(smsTemplates).values({ name: n, content: c, variables: variables ?? [] }).returning({ id: smsTemplates.id });
-    return status(201, { success: true, template_id: row!.id, message: 'Şablon oluşturuldu' });
+    return status(201, { success: true, template_id: row!.id, message: 'Template created' });
   }
 
   static async list() {
@@ -36,3 +36,4 @@ export abstract class Templates {
     return row ? applyTemplate(row.content, variables) : null;
   }
 }
+

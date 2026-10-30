@@ -1,4 +1,4 @@
-import { asc, count, eq } from 'drizzle-orm';
+﻿import { asc, count, eq } from 'drizzle-orm';
 import { status } from 'elysia';
 import { contacts, db } from '@/db';
 import { pageMeta, paginate } from '@/lib/pagination';
@@ -9,12 +9,12 @@ export abstract class Contacts {
   static async create({ name, phone_number, group_name }: ContactsModel['createBody']) {
     const n = name.trim();
     const phone = validatePhoneNumber(phone_number);
-    if (n === '' || n.length > 255) return status(400, { error: 'Kişi adı gerekli' });
-    if (phone === null) return status(400, { error: 'Geçerli bir telefon numarası gerekli' });
+    if (n === '' || n.length > 255) return status(400, { error: 'Contact name is required' });
+    if (phone === null) return status(400, { error: 'A valid phone number is required' });
     const group = group_name ? [...group_name.trim()].slice(0, 100).join('') || null : null;
 
     const [row] = await db.insert(contacts).values({ name: n, phone_number: phone, group_name: group }).returning({ id: contacts.id });
-    return status(201, { success: true, contact_id: row!.id, message: 'Kişi eklendi' });
+    return status(201, { success: true, contact_id: row!.id, message: 'Contact added' });
   }
 
   static async list(query: ContactsModel['listQuery']) {
@@ -31,3 +31,4 @@ export abstract class Contacts {
     return { success: true, ...pageMeta(total, page, limit), contacts: rows };
   }
 }
+

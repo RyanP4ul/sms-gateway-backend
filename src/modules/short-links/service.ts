@@ -1,4 +1,4 @@
-import { desc, eq, sql } from 'drizzle-orm';
+﻿import { desc, eq, sql } from 'drizzle-orm';
 import { status } from 'elysia';
 import { db, shortLinks } from '@/db';
 import { randomFromAlphabet } from '@/lib/crypto';
@@ -17,7 +17,7 @@ export abstract class ShortLinks {
         valid = p === 'http:' || p === 'https:'; // blocks javascript:/data: redirect targets
       } catch { valid = false; }
     }
-    if (!valid) return status(400, { error: 'Geçerli bir URL gerekli (maks 2000 karakter)' });
+    if (!valid) return status(400, { error: 'A valid URL is required (maks 2000 karakter)' });
 
     const expiresAt = ttl_hours !== undefined ? new Date(Date.now() + Math.max(1, Math.trunc(ttl_hours)) * 3_600_000) : null;
 
@@ -33,7 +33,7 @@ export abstract class ShortLinks {
         return status(201, { success: true, short_code: code, short_url: `${env.APP_URL}/r/${code}`, expires_at: expiresAt });
       }
     }
-    return status(500, { error: 'Kısa kod üretilemedi' });
+    return status(500, { error: 'Could not generate short code' });
   }
 
   static async list() {
@@ -50,11 +50,12 @@ export abstract class ShortLinks {
 
   /** Returns the target URL and counts the click, or an error response. */
   static async resolve(code: string) {
-    if (code === '' || code.length > 10) return status(400, { error: 'Geçersiz kısa kod' });
+    if (code === '' || code.length > 10) return status(400, { error: 'Invalid short code' });
     const [link] = await db.select({ url: shortLinks.original_url, expires_at: shortLinks.expires_at }).from(shortLinks).where(eq(shortLinks.short_code, code)).limit(1);
-    if (!link) return status(404, { error: 'Link bulunamadı' });
-    if (link.expires_at !== null && link.expires_at.getTime() < Date.now()) return status(410, { error: 'Link süresi dolmuş' });
+    if (!link) return status(404, { error: 'Link not found' });
+    if (link.expires_at !== null && link.expires_at.getTime() < Date.now()) return status(410, { error: 'Link expired' });
     await db.update(shortLinks).set({ click_count: sql`${shortLinks.click_count} + 1` }).where(eq(shortLinks.short_code, code));
     return { url: link.url };
   }
 }
+

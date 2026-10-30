@@ -1,4 +1,4 @@
-import { sql } from 'drizzle-orm';
+﻿import { sql } from 'drizzle-orm';
 import { Elysia } from 'elysia';
 import { db } from '@/db';
 import { env } from '@/lib/env';
@@ -60,6 +60,7 @@ export const rateLimit = new Elysia({ name: 'rate-limit' }).onRequest(async ({ r
     if (result.count === result.limit + 1) {
       void Audit.log({ action: 'rate_limit.exceeded', actorType: 'anonymous', meta: getRequestMeta(request, server) });
     }
-    return status(429, { error: 'Çok fazla istek, lütfen bekleyin' });
+    return status(429, { error: 'Too many requests, please wait' });
   }
 });
+

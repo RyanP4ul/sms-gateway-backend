@@ -1,4 +1,4 @@
-import { and, desc, eq, isNull, sql, type SQL } from 'drizzle-orm';
+﻿import { and, desc, eq, isNull, sql, type SQL } from 'drizzle-orm';
 import { status } from 'elysia';
 import { db, deviceCommands, devices } from '@/db';
 import type { RequestMeta } from '@/lib/request';
@@ -10,10 +10,10 @@ import type { CommandsModel } from './model';
 export abstract class Commands {
   static async create(body: CommandsModel['createBody'], meta: RequestMeta) {
     const deviceId = body.device_id.trim();
-    if (deviceId === '') return status(400, { error: 'device_id ve command_type zorunludur' });
+    if (deviceId === '') return status(400, { error: 'device_id and command_type are required' });
 
     const [device] = await db.select({ id: devices.id }).from(devices).where(and(eq(devices.device_id, deviceId), isNull(devices.deleted_at))).limit(1);
-    if (!device) return status(404, { error: 'Cihaz bulunamadı' });
+    if (!device) return status(404, { error: 'Device not found' });
 
     const minutes = Math.max(1, Math.trunc(body.expires_minutes ?? 30));
     const [row] = await db
@@ -28,7 +28,7 @@ export abstract class Commands {
       .returning({ id: deviceCommands.id, expires_at: deviceCommands.expires_at });
 
     await Audit.log({ action: 'device_command.created', actorType: 'admin', actorId: deviceId, details: { command_id: row!.id, type: body.command_type }, meta });
-    return status(201, { success: true, command_id: row!.id, message: `Komut oluşturuldu: ${body.command_type}`, expires_at: row!.expires_at });
+    return status(201, { success: true, command_id: row!.id, message: `Command created: ${body.command_type}`, expires_at: row!.expires_at });
   }
 
   static async list({ device_id, status: state, limit }: CommandsModel['listQuery']) {
@@ -70,15 +70,15 @@ export abstract class Commands {
 
   static async reportResult(deviceId: string, { command_id, success = false, result }: CommandsModel['resultBody']) {
     const id = Math.trunc(command_id);
-    if (!(id > 0)) return status(400, { error: 'command_id zorunludur' });
+    if (!(id > 0)) return status(400, { error: 'command_id is required' });
 
     const updated = await db
       .update(deviceCommands)
       .set({ status: success ? 'executed' : 'failed', result: result ?? null, executed_at: sql`now()` })
       .where(and(eq(deviceCommands.id, id), eq(deviceCommands.device_id, deviceId)))
       .returning({ id: deviceCommands.id });
-    if (updated.length === 0) return status(404, { error: 'Komut bulunamadı' });
-    return { success: true, message: 'Komut sonucu kaydedildi' };
+    if (updated.length === 0) return status(404, { error: 'Command not found' });
+    return { success: true, message: 'Command result saved' };
   }
 }
 
@@ -87,3 +87,4 @@ const deviceCommandColumns = {
   status: deviceCommands.status, result: deviceCommands.result, created_by: deviceCommands.created_by, sent_at: deviceCommands.sent_at,
   executed_at: deviceCommands.executed_at, expires_at: deviceCommands.expires_at, created_at: deviceCommands.created_at,
 };
+

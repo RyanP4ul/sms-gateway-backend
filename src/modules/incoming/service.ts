@@ -1,4 +1,4 @@
-import { and, count, desc, eq, inArray, sql, type SQL } from 'drizzle-orm';
+﻿import { and, count, desc, eq, inArray, sql, type SQL } from 'drizzle-orm';
 import { status } from 'elysia';
 import { autoReplyRules, db, incomingSms, smsRequests } from '@/db';
 import { env } from '@/lib/env';
@@ -14,8 +14,8 @@ export abstract class Incoming {
   static async report(deviceId: string, body: IncomingModel['reportBody']) {
     const sender = validatePhoneNumber(body.sender_number);
     const message = body.message.trim();
-    if (sender === null) return status(400, { error: 'Geçerli bir sender_number gerekli' });
-    if (message === '') return status(400, { error: 'Mesaj boş olamaz' });
+    if (sender === null) return status(400, { error: 'A valid sender_number is required' });
+    if (message === '') return status(400, { error: 'Message cannot be empty' });
 
     const rule = await AutoReply.findMatch(message);
     const shouldReply = rule !== null && !(await Blacklist.isBlacklisted(sender));
@@ -70,3 +70,4 @@ export abstract class Incoming {
     return { success: true, updated: updated.length };
   }
 }
+

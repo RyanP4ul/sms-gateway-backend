@@ -1,4 +1,4 @@
-import { desc, eq, inArray, sql } from 'drizzle-orm';
+﻿import { desc, eq, inArray, sql } from 'drizzle-orm';
 import { status } from 'elysia';
 import { db, statusIncidents, systemStatus, uptimeChecks } from '@/db';
 import type { RequestMeta } from '@/lib/request';
@@ -56,14 +56,14 @@ export abstract class SystemStatus {
       .set({ status: next, message: message?.trim() ?? '', updated_by: 'admin' })
       .where(eq(systemStatus.component, component.trim()))
       .returning({ id: systemStatus.id });
-    if (updated.length === 0) return status(404, { error: 'Bileşen bulunamadı' });
+    if (updated.length === 0) return status(404, { error: 'Component not found' });
     await Audit.log({ action: 'system_status.updated', actorType: 'admin', details: { component, status: next }, meta });
-    return { success: true, message: `Durum güncellendi: ${component} -> ${next}` };
+    return { success: true, message: `Status updated: ${component} -> ${next}` };
   }
 
   static async createIncident(body: StatusModel['createIncidentBody'], meta: RequestMeta) {
     const title = body.title.trim();
-    if (title === '') return status(400, { error: 'title zorunludur' });
+    if (title === '') return status(400, { error: 'title is required' });
     const severity = body.severity ?? 'minor';
     const affected = body.affected_components ?? [];
 
@@ -79,7 +79,7 @@ export abstract class SystemStatus {
       return row!.id;
     });
     await Audit.log({ action: 'incident.created', actorType: 'admin', details: { title, severity }, meta });
-    return status(201, { success: true, incident_id: id, message: 'Olay oluşturuldu' });
+    return status(201, { success: true, incident_id: id, message: 'Incident created' });
   }
 
   static async updateIncident({ id, status: next, description }: StatusModel['updateIncidentBody'], meta: RequestMeta) {
@@ -100,9 +100,9 @@ export abstract class SystemStatus {
         .where(eq(statusIncidents.id, incidentId));
       return true;
     });
-    if (!found) return status(404, { error: 'Olay bulunamadı' });
+    if (!found) return status(404, { error: 'Incident not found' });
     await Audit.log({ action: 'incident.updated', actorType: 'admin', details: { incident_id: incidentId, status: next }, meta });
-    return { success: true, message: 'Olay güncellendi' };
+    return { success: true, message: 'Incident updated' };
   }
 
   static async listIncidents({ status: state, limit }: StatusModel['incidentsQuery']) {
@@ -115,3 +115,4 @@ export abstract class SystemStatus {
     return { success: true, incidents };
   }
 }
+

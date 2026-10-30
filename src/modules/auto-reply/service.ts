@@ -1,4 +1,4 @@
-import { desc, eq } from 'drizzle-orm';
+﻿import { desc, eq } from 'drizzle-orm';
 import { status } from 'elysia';
 import { autoReplyRules, db } from '@/db';
 import type { AutoReplyModel } from './model';
@@ -15,14 +15,14 @@ export abstract class AutoReply {
   static async create({ keyword, match_type = 'contains', reply_message }: AutoReplyModel['createBody']) {
     const kw = keyword.trim();
     const reply = reply_message.trim();
-    if (kw === '' || kw.length > 100) return status(400, { error: 'Anahtar kelime gerekli (maks 100 karakter)' });
-    if (reply === '') return status(400, { error: 'Yanıt mesajı gerekli' });
+    if (kw === '' || kw.length > 100) return status(400, { error: 'Keyword is required (max 100 characters)' });
+    if (reply === '') return status(400, { error: 'Reply message is required' });
     if (match_type === 'regex') {
-      try { new RegExp(kw, 'iu'); } catch { return status(400, { error: 'Geçersiz regex ifadesi' }); }
+      try { new RegExp(kw, 'iu'); } catch { return status(400, { error: 'Invalid regex expression' }); }
     }
 
     const [row] = await db.insert(autoReplyRules).values({ keyword: kw, match_type, reply_message: reply }).returning({ id: autoReplyRules.id });
-    return status(201, { success: true, rule_id: row!.id, message: 'Otomatik yanıt kuralı oluşturuldu' });
+    return status(201, { success: true, rule_id: row!.id, message: 'Auto-reply rule created' });
   }
 
   static async list() {
@@ -38,8 +38,8 @@ export abstract class AutoReply {
 
   static async remove(id: number) {
     const deleted = await db.delete(autoReplyRules).where(eq(autoReplyRules.id, id)).returning({ id: autoReplyRules.id });
-    if (deleted.length === 0) return status(404, { error: 'Kural bulunamadı' });
-    return { success: true, message: 'Kural silindi' };
+    if (deleted.length === 0) return status(404, { error: 'Rule not found' });
+    return { success: true, message: 'Rule deleted' };
   }
 
   /** First active rule (oldest first) that matches the incoming text. */
@@ -59,3 +59,4 @@ export abstract class AutoReply {
     );
   }
 }
+

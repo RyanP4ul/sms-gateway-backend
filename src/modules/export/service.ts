@@ -7,7 +7,7 @@ import type { ExportModel } from './model';
 const stamp = () => new Date().toISOString().replace(/[-:]/g, '').replace('T', '_').slice(0, 15);
 
 export abstract class Export {
-  /** Returns a ready-to-send CSV `Response` (UTF-8 BOM so Excel reads Turkish characters correctly). */
+  /** Returns a ready-to-send CSV `Response` (UTF-8 BOM so Excel reads accented characters correctly). */
   static async csv({ type = 'sms', days: rawDays, device_id }: ExportModel['csvQuery']) {
     const days = Math.max(1, Math.min(365, Math.trunc(rawDays ?? 30)));
     let csv: string;
@@ -21,7 +21,7 @@ export abstract class Export {
         .orderBy(desc(r.created_at))
         .limit(10_000);
       csv = toCsv(
-        ['ID', 'Cihaz', 'Telefon', 'Durum', 'Oncelik', 'Batch', 'Gonderim', 'Hata', 'Deneme', 'Olusturma'],
+        ['ID', 'Device', 'Phone', 'Status', 'Priority', 'Batch', 'Sent', 'Error', 'Attempts', 'Created'],
         rows.map((x) => [x.id, x.device_id, x.phone_number, x.status, x.priority, x.batch_id, x.sent_at, x.error_message, x.retry_count, x.created_at]),
       );
     } else if (type === 'devices') {
@@ -32,7 +32,7 @@ export abstract class Export {
         .where(isNull(d.deleted_at))
         .orderBy(d.device_id);
       csv = toCsv(
-        ['CihazID', 'Ad', 'Telefon', 'Aktif', 'Skor', 'Gonderilen', 'Basarisiz', 'SMSMaliyet', 'SonGorulme', 'Kayit'],
+        ['DeviceID', 'Name', 'Phone', 'Active', 'Score', 'Sent', 'Failed', 'SMS Cost', 'Last Seen', 'Created'],
         rows.map((x) => [x.device_id, x.device_name, x.phone_number, x.is_active ? 1 : 0, x.performance_score, x.total_sent, x.total_failed, x.cost_per_sms, x.last_seen, x.created_at]),
       );
     } else {
@@ -44,7 +44,7 @@ export abstract class Export {
         .orderBy(desc(a.created_at))
         .limit(10_000);
       csv = toCsv(
-        ['ID', 'Aksiyon', 'AktorTip', 'AktorID', 'IP', 'Method', 'Path', 'Tarih'],
+        ['ID', 'Action', 'ActorType', 'ActorID', 'IP', 'Method', 'Path', 'Time'],
         rows.map((x) => [x.id, x.action, x.actor_type, x.actor_id, x.ip_address, x.request_method, x.request_path, x.created_at]),
       );
     }

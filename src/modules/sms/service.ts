@@ -1,4 +1,4 @@
-import { and, count, desc, eq, inArray, isNull, sql, type SQL } from 'drizzle-orm';
+﻿import { and, count, desc, eq, inArray, isNull, sql, type SQL } from 'drizzle-orm';
 import { status } from 'elysia';
 import { db, devices, smsRequests } from '@/db';
 import { parseCsv } from '@/lib/csv';
@@ -34,15 +34,15 @@ export abstract class Sms {
     message ??= validateMessage(body.message);
 
     const errors = validateSmsRequest({ device_id: deviceId, phone_number: phone, message });
-    if (errors.length) return status(400, { error: 'Doğrulama hatası', details: errors });
+    if (errors.length) return status(400, { error: 'Validation error', details: errors });
 
     let scheduledAt: Date | null = null;
     if (body.scheduled_at) {
       scheduledAt = new Date(body.scheduled_at);
-      if (Number.isNaN(scheduledAt.getTime())) return status(400, { error: 'Geçersiz scheduled_at' });
+      if (Number.isNaN(scheduledAt.getTime())) return status(400, { error: 'Invalid scheduled_at' });
     }
 
-    if (await Blacklist.isBlacklisted(phone!)) return status(403, { error: 'Bu numara kara listede' });
+    if (await Blacklist.isBlacklisted(phone!)) return status(403, { error: 'This number is blacklisted' });
     const bad = await Sms.checkDevice(deviceId!);
     if (bad) return bad;
 
@@ -61,14 +61,14 @@ export abstract class Sms {
       .returning({ id: smsRequests.id });
 
     await Audit.log({ action: 'sms.created', actorType: 'admin', details: { request_id: row!.id, device_id: deviceId, phone: maskPhone(phone!) }, meta });
-    return status(201, { success: true, message: 'SMS kuyruğa eklendi', request_id: row!.id });
+    return status(201, { success: true, message: 'SMS queued', request_id: row!.id });
   }
 
   static async bulk({ device_id, messages }: SmsModel['bulkBody'], meta: RequestMeta) {
     const deviceId = validateDeviceId(device_id);
-    if (deviceId === null) return status(400, { error: 'Geçerli bir device_id gerekli' });
-    if (messages.length === 0) return status(400, { error: 'messages dizisi gerekli' });
-    if (messages.length > env.MAX_BULK_SIZE) return status(400, { error: `Tek seferde en fazla ${env.MAX_BULK_SIZE} SMS gönderilebilir` });
+    if (deviceId === null) return status(400, { error: 'A valid device_id is required' });
+    if (messages.length === 0) return status(400, { error: 'messages array is required' });
+    if (messages.length > env.MAX_BULK_SIZE) return status(400, { error: `At most ${env.MAX_BULK_SIZE} SMS can be sent in one batch` });
 
     const bad = await Sms.checkDevice(deviceId, 404);
     if (bad) return bad;
@@ -104,7 +104,7 @@ export abstract class Sms {
   // ───────────────────────────── Admin: read ─────────────────────────────
 
   static async getById(id: number) {
-    if (!(id > 0)) return status(400, { error: 'Geçerli bir id parametresi gerekli' });
+    if (!(id > 0)) return status(400, { error: 'A valid id parameter is required' });
     const [sms] = await db
       .select({
         id: smsRequests.id, device_id: smsRequests.device_id, phone_number: smsRequests.phone_number, message: smsRequests.message,
@@ -115,7 +115,7 @@ export abstract class Sms {
       .from(smsRequests)
       .where(eq(smsRequests.id, id))
       .limit(1);
-    if (!sms) return status(404, { error: 'SMS bulunamadı' });
+    if (!sms) return status(404, { error: 'SMS not found' });
     return { success: true, sms };
   }
 
@@ -145,7 +145,7 @@ export abstract class Sms {
 
   /** Round-robin: number i goes to device i mod n. */
   static async distribute(body: SmsModel['distributeBody'], meta: RequestMeta) {
-    const plan = await Sms.prepareBatch(body, 'Seçilen cihazlardan hiçbiri aktif değil');
+    const plan = await Sms.prepareBatch(body, 'None of the selected devices are active');
     if (!('clean' in plan)) return plan;
 
     const order = [...new Set(body.device_ids)].filter((id) => plan.devices.some((d) => d.device_id === id));
@@ -164,7 +164,7 @@ export abstract class Sms {
 
   /** Proportional split by `weight`, `performance_score`, or inverse cost. */
   static async distributeWeighted(body: SmsModel['distributeWeightedBody'], meta: RequestMeta) {
-    const plan = await Sms.prepareBatch(body, 'Aktif cihaz bulunamadı');
+    const plan = await Sms.prepareBatch(body, 'No active devices found');
     if (!('clean' in plan)) return plan;
 
     const strategy = body.strategy ?? 'weighted';
@@ -209,20 +209,20 @@ export abstract class Sms {
 
   static async importCsv(body: SmsModel['importCsvBody'], meta: RequestMeta) {
     const deviceId = validateDeviceId(body.device_id);
-    if (deviceId === null) return status(400, { error: 'device_id gerekli' });
+    if (deviceId === null) return status(400, { error: 'device_id is required' });
     const plain = body.message !== undefined ? validateMessage(body.message) : null;
     if (plain === null && body.template_id === undefined) return status(400, { error: 'message veya template_id gerekli' });
 
     const rows = parseCsv(body.csv_data);
-    if (rows.length === 0) return status(400, { error: 'CSV verisi boş' });
+    if (rows.length === 0) return status(400, { error: 'CSV data is empty' });
     const headers = rows.shift()!.map((h) => h.trim().toLowerCase());
     const phoneIdx = ['phone', 'phone_number', 'telefon'].map((h) => headers.indexOf(h)).find((i) => i >= 0) ?? -1;
-    if (phoneIdx < 0) return status(400, { error: "CSV'de phone, phone_number veya telefon sütunu bulunamadı" });
+    if (phoneIdx < 0) return status(400, { error: "Could not find a phone, phone_number, or telefon column in the CSV" });
 
     let text = plain;
     if (body.template_id !== undefined) {
       text = await Templates.resolve(body.template_id);
-      if (text === null) return status(404, { error: 'Şablon bulunamadı' });
+      if (text === null) return status(404, { error: 'Template not found' });
     }
 
     const bad = await Sms.checkDevice(deviceId, 404);
@@ -298,8 +298,8 @@ export abstract class Sms {
     const newStatus = DEVICE_STATUSES.find((s) => s === body.status);
     const errorMessage = body.error_message ? [...body.error_message].slice(0, 1000).join('') : null;
 
-    if (!(requestId > 0)) return status(400, { error: 'Geçerli bir request_id gerekli' });
-    if (!newStatus) return status(400, { error: 'Geçerli bir status gerekli (sent, delivered, failed)' });
+    if (!(requestId > 0)) return status(400, { error: 'A valid request_id is required' });
+    if (!newStatus) return status(400, { error: 'A valid status is required (sent, delivered, failed)' });
 
     const updated = await db
       .update(smsRequests)
@@ -318,36 +318,36 @@ export abstract class Sms {
       })
       .where(and(eq(smsRequests.id, requestId), eq(smsRequests.device_id, deviceId)))
       .returning({ id: smsRequests.id });
-    if (updated.length === 0) return status(404, { error: 'SMS isteği bulunamadı' });
+    if (updated.length === 0) return status(404, { error: 'SMS request not found' });
 
     Webhooks.trigger(`sms.${newStatus}`, { request_id: requestId, device_id: deviceId, status: newStatus, error_message: errorMessage });
     await Audit.log({ action: 'sms.status_updated', actorType: 'device', actorId: deviceId, details: { request_id: requestId, status: newStatus }, meta });
-    return { success: true, message: 'Durum güncellendi' };
+    return { success: true, message: 'Status updated' };
   }
 
   /** SMS typed by hand on the phone and mirrored to the gateway. */
   static async manual(deviceId: string, body: SmsModel['manualBody'], meta: RequestMeta) {
     const phone = validatePhoneNumber(body.phone_number);
     const message = validateMessage(body.message);
-    if (phone === null) return status(400, { error: 'Geçerli bir telefon numarası gerekli' });
-    if (message === null) return status(400, { error: 'Mesaj boş olamaz' });
-    if (await Blacklist.isBlacklisted(phone)) return status(403, { error: 'Bu numara kara listede' });
+    if (phone === null) return status(400, { error: 'A valid phone number is required' });
+    if (message === null) return status(400, { error: 'Message cannot be empty' });
+    if (await Blacklist.isBlacklisted(phone)) return status(403, { error: 'This number is blacklisted' });
 
     const [row] = await db
       .insert(smsRequests)
       .values({ device_id: deviceId, phone_number: phone, message, priority: 5, max_retries: env.SMS_RETRY_MAX })
       .returning({ id: smsRequests.id });
     await Audit.log({ action: 'sms.manual_created', actorType: 'device', actorId: deviceId, details: { request_id: row!.id, phone: maskPhone(phone) }, meta });
-    return status(201, { success: true, request_id: row!.id, message: 'SMS kuyruğa eklendi' });
+    return status(201, { success: true, request_id: row!.id, message: 'SMS queued' });
   }
 
   // ───────────────────────────── Internals ─────────────────────────────
 
   private static async checkDevice(deviceId: string, notFoundCode: 404 = 404) {
     const [d] = await db.select({ is_active: devices.is_active, deleted_at: devices.deleted_at }).from(devices).where(eq(devices.device_id, deviceId)).limit(1);
-    if (!d) return status(notFoundCode, { error: 'Cihaz bulunamadı' });
-    if (d.deleted_at !== null) return status(410, { error: 'Cihaz silinmiş' });
-    if (!d.is_active) return status(403, { error: 'Cihaz aktif değil' });
+    if (!d) return status(notFoundCode, { error: 'Device not found' });
+    if (d.deleted_at !== null) return status(410, { error: 'Device deleted' });
+    if (!d.is_active) return status(403, { error: 'Device is inactive' });
     return null;
   }
 
@@ -357,14 +357,14 @@ export abstract class Sms {
     noDeviceMessage: string,
   ) {
     const phones = parsePhoneNumbers(body.phone_numbers);
-    if (phones.length === 0) return status(400, { error: 'En az bir geçerli telefon numarası gerekli' });
+    if (phones.length === 0) return status(400, { error: 'At least one valid phone number is required' });
 
     let message: string | null;
     if (body.template_id !== undefined) {
       message = await Templates.resolve(body.template_id, body.variables ?? {});
-      if (message === null) return status(404, { error: 'Şablon bulunamadı veya aktif değil' });
+      if (message === null) return status(404, { error: 'Template not found or inactive' });
     } else message = validateMessage(body.message);
-    if (message === null) return status(400, { error: 'Mesaj veya geçerli bir template_id gerekli' });
+    if (message === null) return status(400, { error: 'Message or a valid template_id is required' });
 
     const active = await db
       .select({ device_id: devices.device_id, weight: devices.weight, performance_score: devices.performance_score, cost_per_sms: devices.cost_per_sms })
@@ -374,7 +374,7 @@ export abstract class Sms {
 
     const blacklisted = await Blacklist.filter(phones);
     const clean = phones.filter((p) => !blacklisted.has(p));
-    if (clean.length === 0) return status(400, { error: 'Tüm numaralar kara listede' });
+    if (clean.length === 0) return status(400, { error: 'All numbers are blacklisted' });
 
     return { phones, clean, blacklisted: blacklisted.size, message, priority: validatePriority(body.priority ?? 5), devices: active };
   }
@@ -401,3 +401,4 @@ export abstract class Sms {
     return { batchId, distribution };
   }
 }
+

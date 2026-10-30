@@ -1,4 +1,4 @@
-import { Elysia } from "elysia";
+﻿import { Elysia } from "elysia";
 import { safeEqual } from "@/lib/crypto";
 import { env } from "@/lib/env";
 import { Audit } from "@/modules/audit/service";
@@ -21,20 +21,20 @@ export const auth = new Elysia({ name: "auth" }).use(requestContext).macro({
     async beforeHandle({ headers, meta, status }) {
       if (!env.ADMIN_TOKEN)
         return status(500, {
-          error: "Admin token yapılandırılmamış",
+          error: "Admin token not configured",
           code: 500,
         });
       console.log("Admin token:", env.ADMIN_TOKEN);
       const token = headers["x-admin-token"] ?? "";
       if (!token)
-        return status(401, { error: "Admin token gerekli", code: 401 });
+        return status(401, { error: "Admin token required", code: 401 });
       if (!safeEqual(env.ADMIN_TOKEN, token)) {
         await Audit.log({
           action: "auth.admin_failed",
           details: { reason: "invalid_token" },
           meta,
         });
-        return status(401, { error: "Geçersiz admin token", code: 401 });
+        return status(401, { error: "Invalid admin token", code: 401 });
       }
     },
   },
@@ -56,15 +56,16 @@ export const auth = new Elysia({ name: "auth" }).use(requestContext).macro({
         headers["x-registration-secret"] ??
         (typeof fromBody === "string" ? fromBody : "");
       if (!secret)
-        return status(401, { error: "Kayıt anahtarı gerekli", code: 401 });
+        return status(401, { error: "Registration key required", code: 401 });
       if (!safeEqual(env.REGISTRATION_SECRET, secret)) {
         await Audit.log({
           action: "auth.registration_failed",
           details: { reason: "invalid_secret" },
           meta,
         });
-        return status(401, { error: "Geçersiz kayıt anahtarı", code: 401 });
+        return status(401, { error: "Invalid registration key", code: 401 });
       }
     },
   },
 });
+

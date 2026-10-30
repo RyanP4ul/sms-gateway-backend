@@ -1,4 +1,4 @@
-import { env } from './env';
+﻿import { env } from './env';
 
 /** Phone number: strips spaces/dashes/parentheses, then E.164-ish (7–15 digits, optional +). */
 export function validatePhoneNumber(phone: unknown): string | null {
@@ -46,10 +46,10 @@ export function validateUrl(url: unknown): string | null {
 /** Collect every problem with an SMS send request (port of validateSmsRequest). */
 export function validateSmsRequest(input: { device_id?: unknown; phone_number?: unknown; message?: unknown }): string[] {
   const errors: string[] = [];
-  if (validateDeviceId(input.device_id) === null) errors.push('Geçerli bir device_id gerekli');
-  if (validatePhoneNumber(input.phone_number) === null) errors.push('Geçerli bir telefon numarası gerekli (E.164 formatı)');
+  if (validateDeviceId(input.device_id) === null) errors.push('A valid device_id is required');
+  if (validatePhoneNumber(input.phone_number) === null) errors.push('A valid phone number is required (E.164 format)');
   if (validateMessage(input.message) === null)
-    errors.push(`Mesaj boş olamaz ve en fazla ${env.MAX_SMS_LENGTH} karakter olabilir`);
+    errors.push(`Message cannot be empty and must be at most ${env.MAX_SMS_LENGTH} characters`);
   return errors;
 }
 
@@ -74,3 +74,4 @@ export function applyTemplate(template: string, variables: Record<string, unknow
 export function maskPhone(phone: string): string {
   return phone.length <= 4 ? '****' : `${phone.slice(0, 3)}${'*'.repeat(phone.length - 6)}${phone.slice(-3)}`;
 }
+
