@@ -1,0 +1,8013 @@
+{
+  "type": "base",
+  "version": "9",
+  "dialect": "postgres",
+  "id": "e4d77b79-c1ea-4da4-8c61-aa8709dc7c26",
+  "prevIds": [
+    "00000000-0000-0000-0000-000000000000"
+  ],
+  "footprints": [
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "audit_actor_type"
+      ],
+      "writes": [
+        "s|enum|public.audit_actor_type",
+        "n|enum|public.audit_actor_type",
+        "e|enum|public.audit_actor_type",
+        "n|type|public.audit_actor_type"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "alert_channel_type"
+      ],
+      "writes": [
+        "s|enum|public.alert_channel_type",
+        "n|enum|public.alert_channel_type",
+        "e|enum|public.alert_channel_type",
+        "n|type|public.alert_channel_type"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "anomaly_action_type"
+      ],
+      "writes": [
+        "s|enum|public.anomaly_action_type",
+        "n|enum|public.anomaly_action_type",
+        "e|enum|public.anomaly_action_type",
+        "n|type|public.anomaly_action_type"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "anomaly_rule_type"
+      ],
+      "writes": [
+        "s|enum|public.anomaly_rule_type",
+        "n|enum|public.anomaly_rule_type",
+        "e|enum|public.anomaly_rule_type",
+        "n|type|public.anomaly_rule_type"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "autoscale_action"
+      ],
+      "writes": [
+        "s|enum|public.autoscale_action",
+        "n|enum|public.autoscale_action",
+        "e|enum|public.autoscale_action",
+        "n|type|public.autoscale_action"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "autoscale_metric"
+      ],
+      "writes": [
+        "s|enum|public.autoscale_metric",
+        "n|enum|public.autoscale_metric",
+        "e|enum|public.autoscale_metric",
+        "n|type|public.autoscale_metric"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "device_command_status"
+      ],
+      "writes": [
+        "s|enum|public.device_command_status",
+        "n|enum|public.device_command_status",
+        "e|enum|public.device_command_status",
+        "n|type|public.device_command_status"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "device_command_type"
+      ],
+      "writes": [
+        "s|enum|public.device_command_type",
+        "n|enum|public.device_command_type",
+        "e|enum|public.device_command_type",
+        "n|type|public.device_command_type"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "component_status"
+      ],
+      "writes": [
+        "s|enum|public.component_status",
+        "n|enum|public.component_status",
+        "e|enum|public.component_status",
+        "n|type|public.component_status"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "incident_severity"
+      ],
+      "writes": [
+        "s|enum|public.incident_severity",
+        "n|enum|public.incident_severity",
+        "e|enum|public.incident_severity",
+        "n|type|public.incident_severity"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "incident_status"
+      ],
+      "writes": [
+        "s|enum|public.incident_status",
+        "n|enum|public.incident_status",
+        "e|enum|public.incident_status",
+        "n|type|public.incident_status"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "auto_reply_match_type"
+      ],
+      "writes": [
+        "s|enum|public.auto_reply_match_type",
+        "n|enum|public.auto_reply_match_type",
+        "e|enum|public.auto_reply_match_type",
+        "n|type|public.auto_reply_match_type"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "sms_status"
+      ],
+      "writes": [
+        "s|enum|public.sms_status",
+        "n|enum|public.sms_status",
+        "e|enum|public.sms_status",
+        "n|type|public.sms_status"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "uptime_check_type"
+      ],
+      "writes": [
+        "s|enum|public.uptime_check_type",
+        "n|enum|public.uptime_check_type",
+        "e|enum|public.uptime_check_type",
+        "n|type|public.uptime_check_type"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_enum",
+      "statementTarget": [
+        "enum",
+        "public",
+        "user_role"
+      ],
+      "writes": [
+        "s|enum|public.user_role",
+        "n|enum|public.user_role",
+        "e|enum|public.user_role",
+        "n|type|public.user_role"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "users"
+      ],
+      "writes": [
+        "s|tbl|public.users",
+        "n|tbl|public.users",
+        "e|tbl|public.users",
+        "n|rel|public.users",
+        "n|type|public.users",
+        "n|rel|public.users_pkey",
+        "n|rel|public.users_username_key"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.user_role"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "api_key_history"
+      ],
+      "writes": [
+        "s|tbl|public.api_key_history",
+        "n|tbl|public.api_key_history",
+        "e|tbl|public.api_key_history",
+        "n|rel|public.api_key_history",
+        "n|type|public.api_key_history",
+        "n|rel|public.api_key_history_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "device_commands"
+      ],
+      "writes": [
+        "s|tbl|public.device_commands",
+        "n|tbl|public.device_commands",
+        "e|tbl|public.device_commands",
+        "n|rel|public.device_commands",
+        "n|type|public.device_commands",
+        "n|rel|public.device_commands_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.device_command_type",
+        "n|enum|public.device_command_status"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "device_score_history"
+      ],
+      "writes": [
+        "s|tbl|public.device_score_history",
+        "n|tbl|public.device_score_history",
+        "e|tbl|public.device_score_history",
+        "n|rel|public.device_score_history",
+        "n|type|public.device_score_history",
+        "n|rel|public.device_score_history_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "devices"
+      ],
+      "writes": [
+        "s|tbl|public.devices",
+        "n|tbl|public.devices",
+        "e|tbl|public.devices",
+        "n|rel|public.devices",
+        "n|type|public.devices",
+        "n|rel|public.devices_pkey",
+        "n|rel|public.devices_device_id_key"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "auto_reply_rules"
+      ],
+      "writes": [
+        "s|tbl|public.auto_reply_rules",
+        "n|tbl|public.auto_reply_rules",
+        "e|tbl|public.auto_reply_rules",
+        "n|rel|public.auto_reply_rules",
+        "n|type|public.auto_reply_rules",
+        "n|rel|public.auto_reply_rules_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.auto_reply_match_type"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "contacts"
+      ],
+      "writes": [
+        "s|tbl|public.contacts",
+        "n|tbl|public.contacts",
+        "e|tbl|public.contacts",
+        "n|rel|public.contacts",
+        "n|type|public.contacts",
+        "n|rel|public.contacts_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "incoming_sms"
+      ],
+      "writes": [
+        "s|tbl|public.incoming_sms",
+        "n|tbl|public.incoming_sms",
+        "e|tbl|public.incoming_sms",
+        "n|rel|public.incoming_sms",
+        "n|type|public.incoming_sms",
+        "n|rel|public.incoming_sms_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "otp_codes"
+      ],
+      "writes": [
+        "s|tbl|public.otp_codes",
+        "n|tbl|public.otp_codes",
+        "e|tbl|public.otp_codes",
+        "n|rel|public.otp_codes",
+        "n|type|public.otp_codes",
+        "n|rel|public.otp_codes_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "phone_blacklist"
+      ],
+      "writes": [
+        "s|tbl|public.phone_blacklist",
+        "n|tbl|public.phone_blacklist",
+        "e|tbl|public.phone_blacklist",
+        "n|rel|public.phone_blacklist",
+        "n|type|public.phone_blacklist",
+        "n|rel|public.phone_blacklist_pkey",
+        "n|rel|public.phone_blacklist_phone_number_key"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "short_links"
+      ],
+      "writes": [
+        "s|tbl|public.short_links",
+        "n|tbl|public.short_links",
+        "e|tbl|public.short_links",
+        "n|rel|public.short_links",
+        "n|type|public.short_links",
+        "n|rel|public.short_links_pkey",
+        "n|rel|public.short_links_short_code_key"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "sms_requests"
+      ],
+      "writes": [
+        "s|tbl|public.sms_requests",
+        "n|tbl|public.sms_requests",
+        "e|tbl|public.sms_requests",
+        "n|rel|public.sms_requests",
+        "n|type|public.sms_requests",
+        "n|rel|public.sms_requests_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.sms_status"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "sms_templates"
+      ],
+      "writes": [
+        "s|tbl|public.sms_templates",
+        "n|tbl|public.sms_templates",
+        "e|tbl|public.sms_templates",
+        "n|rel|public.sms_templates",
+        "n|type|public.sms_templates",
+        "n|rel|public.sms_templates_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "alert_channels"
+      ],
+      "writes": [
+        "s|tbl|public.alert_channels",
+        "n|tbl|public.alert_channels",
+        "e|tbl|public.alert_channels",
+        "n|rel|public.alert_channels",
+        "n|type|public.alert_channels",
+        "n|rel|public.alert_channels_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.alert_channel_type"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "anomaly_events"
+      ],
+      "writes": [
+        "s|tbl|public.anomaly_events",
+        "n|tbl|public.anomaly_events",
+        "e|tbl|public.anomaly_events",
+        "n|rel|public.anomaly_events",
+        "n|type|public.anomaly_events",
+        "n|rel|public.anomaly_events_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "anomaly_rules"
+      ],
+      "writes": [
+        "s|tbl|public.anomaly_rules",
+        "n|tbl|public.anomaly_rules",
+        "e|tbl|public.anomaly_rules",
+        "n|rel|public.anomaly_rules",
+        "n|type|public.anomaly_rules",
+        "n|rel|public.anomaly_rules_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.anomaly_rule_type",
+        "n|enum|public.anomaly_action_type"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "api_versions"
+      ],
+      "writes": [
+        "s|tbl|public.api_versions",
+        "n|tbl|public.api_versions",
+        "e|tbl|public.api_versions",
+        "n|rel|public.api_versions",
+        "n|type|public.api_versions",
+        "n|rel|public.api_versions_pkey",
+        "n|rel|public.api_versions_version_key"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "app_profiles"
+      ],
+      "writes": [
+        "s|tbl|public.app_profiles",
+        "n|tbl|public.app_profiles",
+        "e|tbl|public.app_profiles",
+        "n|rel|public.app_profiles",
+        "n|type|public.app_profiles",
+        "n|rel|public.app_profiles_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "audit_logs"
+      ],
+      "writes": [
+        "s|tbl|public.audit_logs",
+        "n|tbl|public.audit_logs",
+        "e|tbl|public.audit_logs",
+        "n|rel|public.audit_logs",
+        "n|type|public.audit_logs",
+        "n|rel|public.audit_logs_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.audit_actor_type"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "autoscale_history"
+      ],
+      "writes": [
+        "s|tbl|public.autoscale_history",
+        "n|tbl|public.autoscale_history",
+        "e|tbl|public.autoscale_history",
+        "n|rel|public.autoscale_history",
+        "n|type|public.autoscale_history",
+        "n|rel|public.autoscale_history_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.autoscale_action"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "autoscale_rules"
+      ],
+      "writes": [
+        "s|tbl|public.autoscale_rules",
+        "n|tbl|public.autoscale_rules",
+        "e|tbl|public.autoscale_rules",
+        "n|rel|public.autoscale_rules",
+        "n|type|public.autoscale_rules",
+        "n|rel|public.autoscale_rules_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.autoscale_metric"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "cost_records"
+      ],
+      "writes": [
+        "s|tbl|public.cost_records",
+        "n|tbl|public.cost_records",
+        "e|tbl|public.cost_records",
+        "n|rel|public.cost_records",
+        "n|type|public.cost_records",
+        "n|rel|public.cost_records_pkey",
+        "n|rel|public.uk_cost_date_device"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "daily_stats"
+      ],
+      "writes": [
+        "s|tbl|public.daily_stats",
+        "n|tbl|public.daily_stats",
+        "e|tbl|public.daily_stats",
+        "n|rel|public.daily_stats",
+        "n|type|public.daily_stats",
+        "n|rel|public.daily_stats_pkey",
+        "n|rel|public.uk_daily_date_device"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "hourly_stats"
+      ],
+      "writes": [
+        "s|tbl|public.hourly_stats",
+        "n|tbl|public.hourly_stats",
+        "e|tbl|public.hourly_stats",
+        "n|rel|public.hourly_stats",
+        "n|type|public.hourly_stats",
+        "n|rel|public.hourly_stats_pkey",
+        "n|rel|public.uk_hourly_date_hour_device"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "rate_limits"
+      ],
+      "writes": [
+        "s|tbl|public.rate_limits",
+        "n|tbl|public.rate_limits",
+        "e|tbl|public.rate_limits",
+        "n|rel|public.rate_limits",
+        "n|type|public.rate_limits",
+        "n|rel|public.rate_limits_pkey",
+        "n|rel|public.uk_rate_identifier_endpoint"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "status_incidents"
+      ],
+      "writes": [
+        "s|tbl|public.status_incidents",
+        "n|tbl|public.status_incidents",
+        "e|tbl|public.status_incidents",
+        "n|rel|public.status_incidents",
+        "n|type|public.status_incidents",
+        "n|rel|public.status_incidents_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.incident_severity",
+        "n|enum|public.incident_status"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "system_status"
+      ],
+      "writes": [
+        "s|tbl|public.system_status",
+        "n|tbl|public.system_status",
+        "e|tbl|public.system_status",
+        "n|rel|public.system_status",
+        "n|type|public.system_status",
+        "n|rel|public.system_status_pkey",
+        "n|rel|public.system_status_component_key"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.component_status"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "uptime_checks"
+      ],
+      "writes": [
+        "s|tbl|public.uptime_checks",
+        "n|tbl|public.uptime_checks",
+        "e|tbl|public.uptime_checks",
+        "n|rel|public.uptime_checks",
+        "n|type|public.uptime_checks",
+        "n|rel|public.uptime_checks_pkey"
+      ],
+      "reads": [
+        "n|sch|public",
+        "n|enum|public.uptime_check_type"
+      ]
+    },
+    {
+      "statementType": "create_table",
+      "statementTarget": [
+        "table",
+        "public",
+        "webhooks"
+      ],
+      "writes": [
+        "s|tbl|public.webhooks",
+        "n|tbl|public.webhooks",
+        "e|tbl|public.webhooks",
+        "n|rel|public.webhooks",
+        "n|type|public.webhooks",
+        "n|rel|public.webhooks_pkey"
+      ],
+      "reads": [
+        "n|sch|public"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "users",
+        "idx_users_role"
+      ],
+      "writes": [
+        "s|idx|public.idx_users_role",
+        "n|idx|public.idx_users_role",
+        "e|idx|public.idx_users_role",
+        "n|rel|public.idx_users_role"
+      ],
+      "reads": [
+        "n|tbl|public.users",
+        "n|sch|public",
+        "n|col|public.users.role"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "users",
+        "idx_users_token_hash"
+      ],
+      "writes": [
+        "s|idx|public.idx_users_token_hash",
+        "n|idx|public.idx_users_token_hash",
+        "e|idx|public.idx_users_token_hash",
+        "n|rel|public.idx_users_token_hash"
+      ],
+      "reads": [
+        "n|tbl|public.users",
+        "n|sch|public",
+        "n|col|public.users.api_token_hash"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "api_key_history",
+        "idx_akh_device"
+      ],
+      "writes": [
+        "s|idx|public.idx_akh_device",
+        "n|idx|public.idx_akh_device",
+        "e|idx|public.idx_akh_device",
+        "n|rel|public.idx_akh_device"
+      ],
+      "reads": [
+        "n|tbl|public.api_key_history",
+        "n|sch|public",
+        "n|col|public.api_key_history.device_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "api_key_history",
+        "idx_akh_hash"
+      ],
+      "writes": [
+        "s|idx|public.idx_akh_hash",
+        "n|idx|public.idx_akh_hash",
+        "e|idx|public.idx_akh_hash",
+        "n|rel|public.idx_akh_hash"
+      ],
+      "reads": [
+        "n|tbl|public.api_key_history",
+        "n|sch|public",
+        "n|col|public.api_key_history.api_key_hash"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "api_key_history",
+        "idx_akh_expires"
+      ],
+      "writes": [
+        "s|idx|public.idx_akh_expires",
+        "n|idx|public.idx_akh_expires",
+        "e|idx|public.idx_akh_expires",
+        "n|rel|public.idx_akh_expires"
+      ],
+      "reads": [
+        "n|tbl|public.api_key_history",
+        "n|sch|public",
+        "n|col|public.api_key_history.expires_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "device_commands",
+        "idx_dc_device_status"
+      ],
+      "writes": [
+        "s|idx|public.idx_dc_device_status",
+        "n|idx|public.idx_dc_device_status",
+        "e|idx|public.idx_dc_device_status",
+        "n|rel|public.idx_dc_device_status"
+      ],
+      "reads": [
+        "n|tbl|public.device_commands",
+        "n|sch|public",
+        "n|col|public.device_commands.device_id",
+        "n|col|public.device_commands.status"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "device_commands",
+        "idx_dc_status"
+      ],
+      "writes": [
+        "s|idx|public.idx_dc_status",
+        "n|idx|public.idx_dc_status",
+        "e|idx|public.idx_dc_status",
+        "n|rel|public.idx_dc_status"
+      ],
+      "reads": [
+        "n|tbl|public.device_commands",
+        "n|sch|public",
+        "n|col|public.device_commands.status"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "device_commands",
+        "idx_dc_expires"
+      ],
+      "writes": [
+        "s|idx|public.idx_dc_expires",
+        "n|idx|public.idx_dc_expires",
+        "e|idx|public.idx_dc_expires",
+        "n|rel|public.idx_dc_expires"
+      ],
+      "reads": [
+        "n|tbl|public.device_commands",
+        "n|sch|public",
+        "n|col|public.device_commands.expires_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "device_score_history",
+        "idx_dsh_device_date"
+      ],
+      "writes": [
+        "s|idx|public.idx_dsh_device_date",
+        "n|idx|public.idx_dsh_device_date",
+        "e|idx|public.idx_dsh_device_date",
+        "n|rel|public.idx_dsh_device_date"
+      ],
+      "reads": [
+        "n|tbl|public.device_score_history",
+        "n|sch|public",
+        "n|col|public.device_score_history.device_id",
+        "n|col|public.device_score_history.recorded_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "devices",
+        "idx_devices_api_key_hash"
+      ],
+      "writes": [
+        "s|idx|public.idx_devices_api_key_hash",
+        "n|idx|public.idx_devices_api_key_hash",
+        "e|idx|public.idx_devices_api_key_hash",
+        "n|rel|public.idx_devices_api_key_hash"
+      ],
+      "reads": [
+        "n|tbl|public.devices",
+        "n|sch|public",
+        "n|col|public.devices.api_key_hash"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "devices",
+        "idx_devices_api_key_prefix"
+      ],
+      "writes": [
+        "s|idx|public.idx_devices_api_key_prefix",
+        "n|idx|public.idx_devices_api_key_prefix",
+        "e|idx|public.idx_devices_api_key_prefix",
+        "n|rel|public.idx_devices_api_key_prefix"
+      ],
+      "reads": [
+        "n|tbl|public.devices",
+        "n|sch|public",
+        "n|col|public.devices.api_key_prefix"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "devices",
+        "idx_devices_last_seen"
+      ],
+      "writes": [
+        "s|idx|public.idx_devices_last_seen",
+        "n|idx|public.idx_devices_last_seen",
+        "e|idx|public.idx_devices_last_seen",
+        "n|rel|public.idx_devices_last_seen"
+      ],
+      "reads": [
+        "n|tbl|public.devices",
+        "n|sch|public",
+        "n|col|public.devices.last_seen"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "devices",
+        "idx_devices_active_deleted"
+      ],
+      "writes": [
+        "s|idx|public.idx_devices_active_deleted",
+        "n|idx|public.idx_devices_active_deleted",
+        "e|idx|public.idx_devices_active_deleted",
+        "n|rel|public.idx_devices_active_deleted"
+      ],
+      "reads": [
+        "n|tbl|public.devices",
+        "n|sch|public",
+        "n|col|public.devices.is_active",
+        "n|col|public.devices.deleted_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "devices",
+        "idx_devices_weight"
+      ],
+      "writes": [
+        "s|idx|public.idx_devices_weight",
+        "n|idx|public.idx_devices_weight",
+        "e|idx|public.idx_devices_weight",
+        "n|rel|public.idx_devices_weight"
+      ],
+      "reads": [
+        "n|tbl|public.devices",
+        "n|sch|public",
+        "n|col|public.devices.weight"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "auto_reply_rules",
+        "idx_ar_keyword"
+      ],
+      "writes": [
+        "s|idx|public.idx_ar_keyword",
+        "n|idx|public.idx_ar_keyword",
+        "e|idx|public.idx_ar_keyword",
+        "n|rel|public.idx_ar_keyword"
+      ],
+      "reads": [
+        "n|tbl|public.auto_reply_rules",
+        "n|sch|public",
+        "n|col|public.auto_reply_rules.keyword"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "auto_reply_rules",
+        "idx_ar_active"
+      ],
+      "writes": [
+        "s|idx|public.idx_ar_active",
+        "n|idx|public.idx_ar_active",
+        "e|idx|public.idx_ar_active",
+        "n|rel|public.idx_ar_active"
+      ],
+      "reads": [
+        "n|tbl|public.auto_reply_rules",
+        "n|sch|public",
+        "n|col|public.auto_reply_rules.is_active"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "contacts",
+        "idx_contacts_phone"
+      ],
+      "writes": [
+        "s|idx|public.idx_contacts_phone",
+        "n|idx|public.idx_contacts_phone",
+        "e|idx|public.idx_contacts_phone",
+        "n|rel|public.idx_contacts_phone"
+      ],
+      "reads": [
+        "n|tbl|public.contacts",
+        "n|sch|public",
+        "n|col|public.contacts.phone_number"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "contacts",
+        "idx_contacts_group"
+      ],
+      "writes": [
+        "s|idx|public.idx_contacts_group",
+        "n|idx|public.idx_contacts_group",
+        "e|idx|public.idx_contacts_group",
+        "n|rel|public.idx_contacts_group"
+      ],
+      "reads": [
+        "n|tbl|public.contacts",
+        "n|sch|public",
+        "n|col|public.contacts.group_name"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "incoming_sms",
+        "idx_incoming_device_received"
+      ],
+      "writes": [
+        "s|idx|public.idx_incoming_device_received",
+        "n|idx|public.idx_incoming_device_received",
+        "e|idx|public.idx_incoming_device_received",
+        "n|rel|public.idx_incoming_device_received"
+      ],
+      "reads": [
+        "n|tbl|public.incoming_sms",
+        "n|sch|public",
+        "n|col|public.incoming_sms.device_id",
+        "n|col|public.incoming_sms.received_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "incoming_sms",
+        "idx_incoming_sender"
+      ],
+      "writes": [
+        "s|idx|public.idx_incoming_sender",
+        "n|idx|public.idx_incoming_sender",
+        "e|idx|public.idx_incoming_sender",
+        "n|rel|public.idx_incoming_sender"
+      ],
+      "reads": [
+        "n|tbl|public.incoming_sms",
+        "n|sch|public",
+        "n|col|public.incoming_sms.sender_number"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "incoming_sms",
+        "idx_incoming_unread"
+      ],
+      "writes": [
+        "s|idx|public.idx_incoming_unread",
+        "n|idx|public.idx_incoming_unread",
+        "e|idx|public.idx_incoming_unread",
+        "n|rel|public.idx_incoming_unread"
+      ],
+      "reads": [
+        "n|tbl|public.incoming_sms",
+        "n|sch|public",
+        "n|col|public.incoming_sms.is_read"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "otp_codes",
+        "idx_otp_phone_purpose"
+      ],
+      "writes": [
+        "s|idx|public.idx_otp_phone_purpose",
+        "n|idx|public.idx_otp_phone_purpose",
+        "e|idx|public.idx_otp_phone_purpose",
+        "n|rel|public.idx_otp_phone_purpose"
+      ],
+      "reads": [
+        "n|tbl|public.otp_codes",
+        "n|sch|public",
+        "n|col|public.otp_codes.phone_number",
+        "n|col|public.otp_codes.purpose"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "otp_codes",
+        "idx_otp_code"
+      ],
+      "writes": [
+        "s|idx|public.idx_otp_code",
+        "n|idx|public.idx_otp_code",
+        "e|idx|public.idx_otp_code",
+        "n|rel|public.idx_otp_code"
+      ],
+      "reads": [
+        "n|tbl|public.otp_codes",
+        "n|sch|public",
+        "n|col|public.otp_codes.code"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "otp_codes",
+        "idx_otp_expires"
+      ],
+      "writes": [
+        "s|idx|public.idx_otp_expires",
+        "n|idx|public.idx_otp_expires",
+        "e|idx|public.idx_otp_expires",
+        "n|rel|public.idx_otp_expires"
+      ],
+      "reads": [
+        "n|tbl|public.otp_codes",
+        "n|sch|public",
+        "n|col|public.otp_codes.expires_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "short_links",
+        "idx_sl_expires"
+      ],
+      "writes": [
+        "s|idx|public.idx_sl_expires",
+        "n|idx|public.idx_sl_expires",
+        "e|idx|public.idx_sl_expires",
+        "n|rel|public.idx_sl_expires"
+      ],
+      "reads": [
+        "n|tbl|public.short_links",
+        "n|sch|public",
+        "n|col|public.short_links.expires_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "sms_requests",
+        "idx_sms_device_status"
+      ],
+      "writes": [
+        "s|idx|public.idx_sms_device_status",
+        "n|idx|public.idx_sms_device_status",
+        "e|idx|public.idx_sms_device_status",
+        "n|rel|public.idx_sms_device_status"
+      ],
+      "reads": [
+        "n|tbl|public.sms_requests",
+        "n|sch|public",
+        "n|col|public.sms_requests.device_id",
+        "n|col|public.sms_requests.status"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "sms_requests",
+        "idx_sms_status_priority"
+      ],
+      "writes": [
+        "s|idx|public.idx_sms_status_priority",
+        "n|idx|public.idx_sms_status_priority",
+        "e|idx|public.idx_sms_status_priority",
+        "n|rel|public.idx_sms_status_priority"
+      ],
+      "reads": [
+        "n|tbl|public.sms_requests",
+        "n|sch|public",
+        "n|col|public.sms_requests.status",
+        "n|col|public.sms_requests.priority",
+        "n|col|public.sms_requests.created_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "sms_requests",
+        "idx_sms_scheduled"
+      ],
+      "writes": [
+        "s|idx|public.idx_sms_scheduled",
+        "n|idx|public.idx_sms_scheduled",
+        "e|idx|public.idx_sms_scheduled",
+        "n|rel|public.idx_sms_scheduled"
+      ],
+      "reads": [
+        "n|tbl|public.sms_requests",
+        "n|sch|public",
+        "n|col|public.sms_requests.scheduled_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "sms_requests",
+        "idx_sms_retry"
+      ],
+      "writes": [
+        "s|idx|public.idx_sms_retry",
+        "n|idx|public.idx_sms_retry",
+        "e|idx|public.idx_sms_retry",
+        "n|rel|public.idx_sms_retry"
+      ],
+      "reads": [
+        "n|tbl|public.sms_requests",
+        "n|sch|public",
+        "n|col|public.sms_requests.status",
+        "n|col|public.sms_requests.next_retry_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "sms_requests",
+        "idx_sms_batch"
+      ],
+      "writes": [
+        "s|idx|public.idx_sms_batch",
+        "n|idx|public.idx_sms_batch",
+        "e|idx|public.idx_sms_batch",
+        "n|rel|public.idx_sms_batch"
+      ],
+      "reads": [
+        "n|tbl|public.sms_requests",
+        "n|sch|public",
+        "n|col|public.sms_requests.batch_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "sms_requests",
+        "idx_sms_created"
+      ],
+      "writes": [
+        "s|idx|public.idx_sms_created",
+        "n|idx|public.idx_sms_created",
+        "e|idx|public.idx_sms_created",
+        "n|rel|public.idx_sms_created"
+      ],
+      "reads": [
+        "n|tbl|public.sms_requests",
+        "n|sch|public",
+        "n|col|public.sms_requests.created_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "sms_requests",
+        "idx_sms_phone"
+      ],
+      "writes": [
+        "s|idx|public.idx_sms_phone",
+        "n|idx|public.idx_sms_phone",
+        "e|idx|public.idx_sms_phone",
+        "n|rel|public.idx_sms_phone"
+      ],
+      "reads": [
+        "n|tbl|public.sms_requests",
+        "n|sch|public",
+        "n|col|public.sms_requests.phone_number"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "sms_templates",
+        "idx_tpl_name"
+      ],
+      "writes": [
+        "s|idx|public.idx_tpl_name",
+        "n|idx|public.idx_tpl_name",
+        "e|idx|public.idx_tpl_name",
+        "n|rel|public.idx_tpl_name"
+      ],
+      "reads": [
+        "n|tbl|public.sms_templates",
+        "n|sch|public",
+        "n|col|public.sms_templates.name"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "sms_templates",
+        "idx_tpl_active"
+      ],
+      "writes": [
+        "s|idx|public.idx_tpl_active",
+        "n|idx|public.idx_tpl_active",
+        "e|idx|public.idx_tpl_active",
+        "n|rel|public.idx_tpl_active"
+      ],
+      "reads": [
+        "n|tbl|public.sms_templates",
+        "n|sch|public",
+        "n|col|public.sms_templates.is_active"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "alert_channels",
+        "idx_alert_channels_active"
+      ],
+      "writes": [
+        "s|idx|public.idx_alert_channels_active",
+        "n|idx|public.idx_alert_channels_active",
+        "e|idx|public.idx_alert_channels_active",
+        "n|rel|public.idx_alert_channels_active"
+      ],
+      "reads": [
+        "n|tbl|public.alert_channels",
+        "n|sch|public",
+        "n|col|public.alert_channels.is_active"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "anomaly_events",
+        "idx_anomaly_events_rule"
+      ],
+      "writes": [
+        "s|idx|public.idx_anomaly_events_rule",
+        "n|idx|public.idx_anomaly_events_rule",
+        "e|idx|public.idx_anomaly_events_rule",
+        "n|rel|public.idx_anomaly_events_rule"
+      ],
+      "reads": [
+        "n|tbl|public.anomaly_events",
+        "n|sch|public",
+        "n|col|public.anomaly_events.rule_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "anomaly_events",
+        "idx_anomaly_events_created"
+      ],
+      "writes": [
+        "s|idx|public.idx_anomaly_events_created",
+        "n|idx|public.idx_anomaly_events_created",
+        "e|idx|public.idx_anomaly_events_created",
+        "n|rel|public.idx_anomaly_events_created"
+      ],
+      "reads": [
+        "n|tbl|public.anomaly_events",
+        "n|sch|public",
+        "n|col|public.anomaly_events.created_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "anomaly_events",
+        "idx_anomaly_events_unresolved"
+      ],
+      "writes": [
+        "s|idx|public.idx_anomaly_events_unresolved",
+        "n|idx|public.idx_anomaly_events_unresolved",
+        "e|idx|public.idx_anomaly_events_unresolved",
+        "n|rel|public.idx_anomaly_events_unresolved"
+      ],
+      "reads": [
+        "n|tbl|public.anomaly_events",
+        "n|sch|public",
+        "n|col|public.anomaly_events.is_resolved"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "anomaly_rules",
+        "idx_anomaly_rules_active"
+      ],
+      "writes": [
+        "s|idx|public.idx_anomaly_rules_active",
+        "n|idx|public.idx_anomaly_rules_active",
+        "e|idx|public.idx_anomaly_rules_active",
+        "n|rel|public.idx_anomaly_rules_active"
+      ],
+      "reads": [
+        "n|tbl|public.anomaly_rules",
+        "n|sch|public",
+        "n|col|public.anomaly_rules.is_active"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "audit_logs",
+        "idx_audit_action"
+      ],
+      "writes": [
+        "s|idx|public.idx_audit_action",
+        "n|idx|public.idx_audit_action",
+        "e|idx|public.idx_audit_action",
+        "n|rel|public.idx_audit_action"
+      ],
+      "reads": [
+        "n|tbl|public.audit_logs",
+        "n|sch|public",
+        "n|col|public.audit_logs.action"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "audit_logs",
+        "idx_audit_actor"
+      ],
+      "writes": [
+        "s|idx|public.idx_audit_actor",
+        "n|idx|public.idx_audit_actor",
+        "e|idx|public.idx_audit_actor",
+        "n|rel|public.idx_audit_actor"
+      ],
+      "reads": [
+        "n|tbl|public.audit_logs",
+        "n|sch|public",
+        "n|col|public.audit_logs.actor_type",
+        "n|col|public.audit_logs.actor_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "audit_logs",
+        "idx_audit_created"
+      ],
+      "writes": [
+        "s|idx|public.idx_audit_created",
+        "n|idx|public.idx_audit_created",
+        "e|idx|public.idx_audit_created",
+        "n|rel|public.idx_audit_created"
+      ],
+      "reads": [
+        "n|tbl|public.audit_logs",
+        "n|sch|public",
+        "n|col|public.audit_logs.created_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "audit_logs",
+        "idx_audit_ip"
+      ],
+      "writes": [
+        "s|idx|public.idx_audit_ip",
+        "n|idx|public.idx_audit_ip",
+        "e|idx|public.idx_audit_ip",
+        "n|rel|public.idx_audit_ip"
+      ],
+      "reads": [
+        "n|tbl|public.audit_logs",
+        "n|sch|public",
+        "n|col|public.audit_logs.ip_address"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "autoscale_history",
+        "idx_autoscale_history_rule"
+      ],
+      "writes": [
+        "s|idx|public.idx_autoscale_history_rule",
+        "n|idx|public.idx_autoscale_history_rule",
+        "e|idx|public.idx_autoscale_history_rule",
+        "n|rel|public.idx_autoscale_history_rule"
+      ],
+      "reads": [
+        "n|tbl|public.autoscale_history",
+        "n|sch|public",
+        "n|col|public.autoscale_history.rule_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "autoscale_history",
+        "idx_autoscale_history_created"
+      ],
+      "writes": [
+        "s|idx|public.idx_autoscale_history_created",
+        "n|idx|public.idx_autoscale_history_created",
+        "e|idx|public.idx_autoscale_history_created",
+        "n|rel|public.idx_autoscale_history_created"
+      ],
+      "reads": [
+        "n|tbl|public.autoscale_history",
+        "n|sch|public",
+        "n|col|public.autoscale_history.created_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "autoscale_rules",
+        "idx_autoscale_rules_active"
+      ],
+      "writes": [
+        "s|idx|public.idx_autoscale_rules_active",
+        "n|idx|public.idx_autoscale_rules_active",
+        "e|idx|public.idx_autoscale_rules_active",
+        "n|rel|public.idx_autoscale_rules_active"
+      ],
+      "reads": [
+        "n|tbl|public.autoscale_rules",
+        "n|sch|public",
+        "n|col|public.autoscale_rules.is_active"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "hourly_stats",
+        "idx_hourly_date"
+      ],
+      "writes": [
+        "s|idx|public.idx_hourly_date",
+        "n|idx|public.idx_hourly_date",
+        "e|idx|public.idx_hourly_date",
+        "n|rel|public.idx_hourly_date"
+      ],
+      "reads": [
+        "n|tbl|public.hourly_stats",
+        "n|sch|public",
+        "n|col|public.hourly_stats.stat_date"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "rate_limits",
+        "idx_rate_window"
+      ],
+      "writes": [
+        "s|idx|public.idx_rate_window",
+        "n|idx|public.idx_rate_window",
+        "e|idx|public.idx_rate_window",
+        "n|rel|public.idx_rate_window"
+      ],
+      "reads": [
+        "n|tbl|public.rate_limits",
+        "n|sch|public",
+        "n|col|public.rate_limits.window_start"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "status_incidents",
+        "idx_incidents_status"
+      ],
+      "writes": [
+        "s|idx|public.idx_incidents_status",
+        "n|idx|public.idx_incidents_status",
+        "e|idx|public.idx_incidents_status",
+        "n|rel|public.idx_incidents_status"
+      ],
+      "reads": [
+        "n|tbl|public.status_incidents",
+        "n|sch|public",
+        "n|col|public.status_incidents.status"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "status_incidents",
+        "idx_incidents_created"
+      ],
+      "writes": [
+        "s|idx|public.idx_incidents_created",
+        "n|idx|public.idx_incidents_created",
+        "e|idx|public.idx_incidents_created",
+        "n|rel|public.idx_incidents_created"
+      ],
+      "reads": [
+        "n|tbl|public.status_incidents",
+        "n|sch|public",
+        "n|col|public.status_incidents.created_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "uptime_checks",
+        "idx_uptime_type_target"
+      ],
+      "writes": [
+        "s|idx|public.idx_uptime_type_target",
+        "n|idx|public.idx_uptime_type_target",
+        "e|idx|public.idx_uptime_type_target",
+        "n|rel|public.idx_uptime_type_target"
+      ],
+      "reads": [
+        "n|tbl|public.uptime_checks",
+        "n|sch|public",
+        "n|col|public.uptime_checks.check_type",
+        "n|col|public.uptime_checks.target_id"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "uptime_checks",
+        "idx_uptime_created"
+      ],
+      "writes": [
+        "s|idx|public.idx_uptime_created",
+        "n|idx|public.idx_uptime_created",
+        "e|idx|public.idx_uptime_created",
+        "n|rel|public.idx_uptime_created"
+      ],
+      "reads": [
+        "n|tbl|public.uptime_checks",
+        "n|sch|public",
+        "n|col|public.uptime_checks.created_at"
+      ]
+    },
+    {
+      "statementType": "create_index",
+      "statementTarget": [
+        "index",
+        "public",
+        "webhooks",
+        "idx_webhooks_active"
+      ],
+      "writes": [
+        "s|idx|public.idx_webhooks_active",
+        "n|idx|public.idx_webhooks_active",
+        "e|idx|public.idx_webhooks_active",
+        "n|rel|public.idx_webhooks_active"
+      ],
+      "reads": [
+        "n|tbl|public.webhooks",
+        "n|sch|public",
+        "n|col|public.webhooks.is_active"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "device_commands"
+      ],
+      "writes": [
+        "s|fk|public.device_commands.device_commands_device_id_devices_device_id_fkey",
+        "n|fk|public.device_commands.device_commands_device_id_devices_device_id_fkey",
+        "e|fk|public.device_commands.device_commands_device_id_devices_device_id_fkey",
+        "n|con|public.device_commands.device_commands_device_id_devices_device_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.device_commands",
+        "n|sch|public",
+        "n|tbl|public.devices",
+        "n|sch|public",
+        "n|col|public.device_commands.device_id",
+        "n|col|public.devices.device_id",
+        "e|uniqueness|public.devices.device_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "devices"
+      ],
+      "writes": [
+        "s|fk|public.devices.devices_user_id_users_id_fkey",
+        "n|fk|public.devices.devices_user_id_users_id_fkey",
+        "e|fk|public.devices.devices_user_id_users_id_fkey",
+        "n|con|public.devices.devices_user_id_users_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.devices",
+        "n|sch|public",
+        "n|tbl|public.users",
+        "n|sch|public",
+        "n|col|public.devices.user_id",
+        "n|col|public.users.id",
+        "e|uniqueness|public.users.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "incoming_sms"
+      ],
+      "writes": [
+        "s|fk|public.incoming_sms.incoming_sms_device_id_devices_device_id_fkey",
+        "n|fk|public.incoming_sms.incoming_sms_device_id_devices_device_id_fkey",
+        "e|fk|public.incoming_sms.incoming_sms_device_id_devices_device_id_fkey",
+        "n|con|public.incoming_sms.incoming_sms_device_id_devices_device_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.incoming_sms",
+        "n|sch|public",
+        "n|tbl|public.devices",
+        "n|sch|public",
+        "n|col|public.incoming_sms.device_id",
+        "n|col|public.devices.device_id",
+        "e|uniqueness|public.devices.device_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "sms_requests"
+      ],
+      "writes": [
+        "s|fk|public.sms_requests.sms_requests_device_id_devices_device_id_fkey",
+        "n|fk|public.sms_requests.sms_requests_device_id_devices_device_id_fkey",
+        "e|fk|public.sms_requests.sms_requests_device_id_devices_device_id_fkey",
+        "n|con|public.sms_requests.sms_requests_device_id_devices_device_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.sms_requests",
+        "n|sch|public",
+        "n|tbl|public.devices",
+        "n|sch|public",
+        "n|col|public.sms_requests.device_id",
+        "n|col|public.devices.device_id",
+        "e|uniqueness|public.devices.device_id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "anomaly_events"
+      ],
+      "writes": [
+        "s|fk|public.anomaly_events.anomaly_events_rule_id_anomaly_rules_id_fkey",
+        "n|fk|public.anomaly_events.anomaly_events_rule_id_anomaly_rules_id_fkey",
+        "e|fk|public.anomaly_events.anomaly_events_rule_id_anomaly_rules_id_fkey",
+        "n|con|public.anomaly_events.anomaly_events_rule_id_anomaly_rules_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.anomaly_events",
+        "n|sch|public",
+        "n|tbl|public.anomaly_rules",
+        "n|sch|public",
+        "n|col|public.anomaly_events.rule_id",
+        "n|col|public.anomaly_rules.id",
+        "e|uniqueness|public.anomaly_rules.id"
+      ]
+    },
+    {
+      "statementType": "create_fk",
+      "statementTarget": [
+        "table",
+        "public",
+        "autoscale_history"
+      ],
+      "writes": [
+        "s|fk|public.autoscale_history.autoscale_history_rule_id_autoscale_rules_id_fkey",
+        "n|fk|public.autoscale_history.autoscale_history_rule_id_autoscale_rules_id_fkey",
+        "e|fk|public.autoscale_history.autoscale_history_rule_id_autoscale_rules_id_fkey",
+        "n|con|public.autoscale_history.autoscale_history_rule_id_autoscale_rules_id_fkey"
+      ],
+      "reads": [
+        "n|tbl|public.autoscale_history",
+        "n|sch|public",
+        "n|tbl|public.autoscale_rules",
+        "n|sch|public",
+        "n|col|public.autoscale_history.rule_id",
+        "n|col|public.autoscale_rules.id",
+        "e|uniqueness|public.autoscale_rules.id"
+      ]
+    }
+  ],
+  "ddl": [
+    {
+      "schema": "public",
+      "name": "users",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "api_key_history",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "device_commands",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "device_score_history",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "devices",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "auto_reply_rules",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "contacts",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "incoming_sms",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "otp_codes",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "phone_blacklist",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "short_links",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "sms_requests",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "sms_templates",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "alert_channels",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "anomaly_events",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "anomaly_rules",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "api_versions",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "app_profiles",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "audit_logs",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "autoscale_history",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "autoscale_rules",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "cost_records",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "daily_stats",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "hourly_stats",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "rate_limits",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "status_incidents",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "system_status",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "uptime_checks",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "webhooks",
+      "isRlsEnabled": false,
+      "entityType": "tables"
+    },
+    {
+      "schema": "public",
+      "name": "audit_actor_type",
+      "values": [
+        "device",
+        "admin",
+        "system",
+        "anonymous"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "alert_channel_type",
+      "values": [
+        "email",
+        "sms",
+        "telegram",
+        "slack",
+        "webhook"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "anomaly_action_type",
+      "values": [
+        "alert",
+        "block_device",
+        "block_number",
+        "throttle"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "anomaly_rule_type",
+      "values": [
+        "spike",
+        "flood",
+        "night_activity",
+        "high_fail_rate",
+        "same_number"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "autoscale_action",
+      "values": [
+        "scale_up",
+        "scale_down"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "autoscale_metric",
+      "values": [
+        "queue_size",
+        "fail_rate",
+        "response_time",
+        "throughput"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "device_command_status",
+      "values": [
+        "pending",
+        "sent",
+        "executed",
+        "failed",
+        "expired"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "device_command_type",
+      "values": [
+        "restart_service",
+        "sync_config",
+        "update_app",
+        "clear_queue",
+        "send_log",
+        "custom"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "component_status",
+      "values": [
+        "operational",
+        "degraded",
+        "partial_outage",
+        "major_outage",
+        "maintenance"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "incident_severity",
+      "values": [
+        "minor",
+        "major",
+        "critical"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "incident_status",
+      "values": [
+        "investigating",
+        "identified",
+        "monitoring",
+        "resolved"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "auto_reply_match_type",
+      "values": [
+        "exact",
+        "contains",
+        "starts_with",
+        "regex"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "sms_status",
+      "values": [
+        "pending",
+        "processing",
+        "sent",
+        "delivered",
+        "failed",
+        "cancelled"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "uptime_check_type",
+      "values": [
+        "api",
+        "database",
+        "device"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "name": "user_role",
+      "values": [
+        "admin",
+        "user",
+        "viewer"
+      ],
+      "entityType": "enums"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "users_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "username",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "password_hash",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "role",
+      "type": "user_role",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'user'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "is_active",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "true",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "api_token_hash",
+      "type": "varchar(64)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "api_token_prefix",
+      "type": "varchar(8)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "max_devices",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "5",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "max_sms_per_day",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "1000",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "last_login_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "totp_secret",
+      "type": "varchar(64)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "totp_enabled",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "false",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "totp_recovery_codes",
+      "type": "jsonb",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "api_key_history",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "api_key_history_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "api_key_history",
+      "name": "device_id",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "api_key_history",
+      "name": "api_key_hash",
+      "type": "varchar(64)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "api_key_history",
+      "name": "api_key_prefix",
+      "type": "varchar(8)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "api_key_history",
+      "name": "is_active",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "true",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "api_key_history",
+      "name": "expires_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "api_key_history",
+      "name": "rotated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "api_key_history",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_commands",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "device_commands_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_commands",
+      "name": "device_id",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_commands",
+      "name": "command_type",
+      "type": "device_command_type",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_commands",
+      "name": "payload",
+      "type": "jsonb",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_commands",
+      "name": "status",
+      "type": "device_command_status",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'pending'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_commands",
+      "name": "result",
+      "type": "jsonb",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_commands",
+      "name": "created_by",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'admin'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_commands",
+      "name": "sent_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_commands",
+      "name": "executed_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_commands",
+      "name": "expires_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_commands",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_score_history",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "device_score_history_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_score_history",
+      "name": "device_id",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_score_history",
+      "name": "score",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_score_history",
+      "name": "success_rate",
+      "type": "numeric(5,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_score_history",
+      "name": "avg_response_ms",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_score_history",
+      "name": "uptime_pct",
+      "type": "numeric(5,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'100'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "device_score_history",
+      "name": "recorded_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "devices_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "user_id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "device_id",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "device_name",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "phone_number",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "api_key_hash",
+      "type": "varchar(64)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "api_key_prefix",
+      "type": "varchar(8)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "is_active",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "true",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "max_sms_per_minute",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "10",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "sim_slot",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "last_seen",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "deleted_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "performance_score",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "100",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "total_sent",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "total_failed",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "weight",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "100",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "cost_per_sms",
+      "type": "numeric(10,4)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'0'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "imei",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "imei2",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "android_version",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "sdk_version",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "device_model",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "device_brand",
+      "type": "varchar(50)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "device_manufacturer",
+      "type": "varchar(50)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "hardware_id",
+      "type": "varchar(64)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "board",
+      "type": "varchar(50)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "fingerprint",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "display_resolution",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "app_version",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "auto_reply_rules",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "auto_reply_rules_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "auto_reply_rules",
+      "name": "keyword",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "auto_reply_rules",
+      "name": "match_type",
+      "type": "auto_reply_match_type",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'contains'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "auto_reply_rules",
+      "name": "reply_message",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "auto_reply_rules",
+      "name": "is_active",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "true",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "auto_reply_rules",
+      "name": "usage_count",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "auto_reply_rules",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "auto_reply_rules",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "contacts",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "contacts_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "contacts",
+      "name": "name",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "contacts",
+      "name": "phone_number",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "contacts",
+      "name": "group_name",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "contacts",
+      "name": "metadata",
+      "type": "jsonb",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "contacts",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "contacts",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "incoming_sms",
+      "name": "id",
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "incoming_sms_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "incoming_sms",
+      "name": "device_id",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "incoming_sms",
+      "name": "sender_number",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "incoming_sms",
+      "name": "message",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "incoming_sms",
+      "name": "received_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "incoming_sms",
+      "name": "is_read",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "false",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "incoming_sms",
+      "name": "auto_reply_sent",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "false",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "incoming_sms",
+      "name": "related_sms_id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "incoming_sms",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otp_codes",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "otp_codes_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otp_codes",
+      "name": "phone_number",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otp_codes",
+      "name": "code",
+      "type": "varchar(10)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otp_codes",
+      "name": "purpose",
+      "type": "varchar(50)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'verification'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otp_codes",
+      "name": "is_used",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "false",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otp_codes",
+      "name": "attempts",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otp_codes",
+      "name": "max_attempts",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "3",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otp_codes",
+      "name": "expires_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otp_codes",
+      "name": "used_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otp_codes",
+      "name": "sms_request_id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "otp_codes",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "phone_blacklist",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "phone_blacklist_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "phone_blacklist",
+      "name": "phone_number",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "phone_blacklist",
+      "name": "reason",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "phone_blacklist",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "short_links",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "short_links_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "short_links",
+      "name": "short_code",
+      "type": "varchar(10)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "short_links",
+      "name": "original_url",
+      "type": "varchar(2000)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "short_links",
+      "name": "click_count",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "short_links",
+      "name": "expires_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "short_links",
+      "name": "sms_request_id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "short_links",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "sms_requests_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "device_id",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "phone_number",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "message",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "status",
+      "type": "sms_status",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'pending'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "priority",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "5",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "batch_id",
+      "type": "varchar(36)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "template_id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "sim_slot",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "scheduled_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "sent_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "delivered_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "error_message",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "retry_count",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "max_retries",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "3",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "next_retry_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "webhook_url",
+      "type": "varchar(500)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "cost",
+      "type": "numeric(10,4)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'0'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "message_parts",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "1",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "encoding",
+      "type": "varchar(10)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'gsm7'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_templates",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "sms_templates_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_templates",
+      "name": "name",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_templates",
+      "name": "content",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_templates",
+      "name": "variables",
+      "type": "jsonb",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_templates",
+      "name": "is_active",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "true",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_templates",
+      "name": "usage_count",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_templates",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "sms_templates",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "alert_channels",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "alert_channels_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "alert_channels",
+      "name": "channel_type",
+      "type": "alert_channel_type",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "alert_channels",
+      "name": "config",
+      "type": "jsonb",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "alert_channels",
+      "name": "events",
+      "type": "jsonb",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "alert_channels",
+      "name": "is_active",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "true",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "alert_channels",
+      "name": "last_sent_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "alert_channels",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_events",
+      "name": "id",
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "anomaly_events_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_events",
+      "name": "rule_id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_events",
+      "name": "device_id",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_events",
+      "name": "phone_number",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_events",
+      "name": "details",
+      "type": "jsonb",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_events",
+      "name": "action_taken",
+      "type": "varchar(50)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_events",
+      "name": "is_resolved",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "false",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_events",
+      "name": "resolved_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_events",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_rules",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "anomaly_rules_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_rules",
+      "name": "rule_name",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_rules",
+      "name": "rule_type",
+      "type": "anomaly_rule_type",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_rules",
+      "name": "threshold_value",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_rules",
+      "name": "time_window_minutes",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "5",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_rules",
+      "name": "action_type",
+      "type": "anomaly_action_type",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'alert'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_rules",
+      "name": "is_active",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "true",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_rules",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "api_versions",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "api_versions_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "api_versions",
+      "name": "version",
+      "type": "varchar(10)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "api_versions",
+      "name": "is_active",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "true",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "api_versions",
+      "name": "is_default",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "false",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "api_versions",
+      "name": "deprecated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "api_versions",
+      "name": "sunset_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "api_versions",
+      "name": "changelog",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "api_versions",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "app_profiles",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "app_profiles_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "app_profiles",
+      "name": "profile_name",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "app_profiles",
+      "name": "api_url",
+      "type": "varchar(500)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "app_profiles",
+      "name": "device_id",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "app_profiles",
+      "name": "is_default",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "false",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "app_profiles",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "audit_logs",
+      "name": "id",
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "audit_logs_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "audit_logs",
+      "name": "action",
+      "type": "varchar(50)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "audit_logs",
+      "name": "actor_type",
+      "type": "audit_actor_type",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'anonymous'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "audit_logs",
+      "name": "actor_id",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "audit_logs",
+      "name": "ip_address",
+      "type": "varchar(45)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "audit_logs",
+      "name": "user_agent",
+      "type": "varchar(500)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "audit_logs",
+      "name": "request_method",
+      "type": "varchar(10)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "audit_logs",
+      "name": "request_path",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "audit_logs",
+      "name": "response_code",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "audit_logs",
+      "name": "details",
+      "type": "jsonb",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "audit_logs",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_history",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "autoscale_history_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_history",
+      "name": "rule_id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_history",
+      "name": "action",
+      "type": "autoscale_action",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_history",
+      "name": "device_id",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_history",
+      "name": "metric_value",
+      "type": "numeric(10,2)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_history",
+      "name": "threshold_value",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_history",
+      "name": "active_device_count",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_history",
+      "name": "details",
+      "type": "jsonb",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_history",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_rules",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "autoscale_rules_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_rules",
+      "name": "rule_name",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_rules",
+      "name": "metric",
+      "type": "autoscale_metric",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_rules",
+      "name": "scale_up_threshold",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_rules",
+      "name": "scale_down_threshold",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_rules",
+      "name": "min_devices",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "1",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_rules",
+      "name": "max_devices",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "10",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_rules",
+      "name": "cooldown_minutes",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "5",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_rules",
+      "name": "is_active",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "true",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_rules",
+      "name": "last_action_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_rules",
+      "name": "last_action",
+      "type": "varchar(20)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_rules",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_rules",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "cost_records",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "cost_records_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "cost_records",
+      "name": "record_date",
+      "type": "date",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "cost_records",
+      "name": "device_id",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "cost_records",
+      "name": "sms_count",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "cost_records",
+      "name": "total_cost",
+      "type": "numeric(10,4)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'0'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "cost_records",
+      "name": "currency",
+      "type": "varchar(3)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'TRY'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "cost_records",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "daily_stats",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "daily_stats_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "daily_stats",
+      "name": "stat_date",
+      "type": "date",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "daily_stats",
+      "name": "device_id",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "daily_stats",
+      "name": "total_sent",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "daily_stats",
+      "name": "total_failed",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "daily_stats",
+      "name": "total_delivered",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "daily_stats",
+      "name": "total_pending",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "daily_stats",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "daily_stats",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "hourly_stats",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "hourly_stats_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "hourly_stats",
+      "name": "stat_date",
+      "type": "date",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "hourly_stats",
+      "name": "stat_hour",
+      "type": "smallint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "hourly_stats",
+      "name": "device_id",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "hourly_stats",
+      "name": "sent_count",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "hourly_stats",
+      "name": "failed_count",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "hourly_stats",
+      "name": "avg_send_time_ms",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "hourly_stats",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "rate_limits",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "rate_limits_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "rate_limits",
+      "name": "identifier",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "rate_limits",
+      "name": "endpoint",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'global'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "rate_limits",
+      "name": "request_count",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "1",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "rate_limits",
+      "name": "window_start",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "status_incidents",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "status_incidents_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "status_incidents",
+      "name": "title",
+      "type": "varchar(200)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "status_incidents",
+      "name": "description",
+      "type": "text",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "status_incidents",
+      "name": "severity",
+      "type": "incident_severity",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'minor'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "status_incidents",
+      "name": "status",
+      "type": "incident_status",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'investigating'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "status_incidents",
+      "name": "affected_components",
+      "type": "jsonb",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "status_incidents",
+      "name": "resolved_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "status_incidents",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "status_incidents",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "system_status",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "system_status_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "system_status",
+      "name": "component",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "system_status",
+      "name": "status",
+      "type": "component_status",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'operational'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "system_status",
+      "name": "message",
+      "type": "varchar(500)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "system_status",
+      "name": "is_public",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "true",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "system_status",
+      "name": "updated_by",
+      "type": "varchar(100)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "'system'",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "system_status",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "system_status",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "uptime_checks",
+      "name": "id",
+      "type": "bigint",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "uptime_checks_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "9223372036854775807",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "uptime_checks",
+      "name": "check_type",
+      "type": "uptime_check_type",
+      "typeSchema": "public",
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "uptime_checks",
+      "name": "target_id",
+      "type": "varchar(255)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "uptime_checks",
+      "name": "is_up",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "true",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "uptime_checks",
+      "name": "response_time_ms",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "uptime_checks",
+      "name": "error_message",
+      "type": "varchar(500)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "uptime_checks",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "webhooks",
+      "name": "id",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": {
+        "type": "always",
+        "name": "webhooks_id_seq",
+        "increment": "1",
+        "startWith": "1",
+        "minValue": "1",
+        "maxValue": "2147483647",
+        "cache": 1,
+        "cycle": false
+      },
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "webhooks",
+      "name": "url",
+      "type": "varchar(500)",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "webhooks",
+      "name": "events",
+      "type": "jsonb",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "webhooks",
+      "name": "secret",
+      "type": "varchar(64)",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "webhooks",
+      "name": "is_active",
+      "type": "boolean",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "true",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "webhooks",
+      "name": "last_triggered_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": false,
+      "dimensions": 0,
+      "default": null,
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "webhooks",
+      "name": "failure_count",
+      "type": "integer",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "0",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "webhooks",
+      "name": "created_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "webhooks",
+      "name": "updated_at",
+      "type": "timestamp with time zone",
+      "typeSchema": null,
+      "notNull": true,
+      "dimensions": 0,
+      "default": "now()",
+      "generated": null,
+      "identity": null,
+      "entityType": "columns"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "idx_users_role",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "role",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "idx_users_token_hash",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "api_token_hash",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "api_key_history",
+      "name": "idx_akh_device",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "device_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "api_key_history",
+      "name": "idx_akh_hash",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "api_key_hash",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "api_key_history",
+      "name": "idx_akh_expires",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "expires_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "device_commands",
+      "name": "idx_dc_device_status",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "device_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        },
+        {
+          "value": "status",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "device_commands",
+      "name": "idx_dc_status",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "status",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "device_commands",
+      "name": "idx_dc_expires",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "expires_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "device_score_history",
+      "name": "idx_dsh_device_date",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "device_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        },
+        {
+          "value": "recorded_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "idx_devices_api_key_hash",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "api_key_hash",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "idx_devices_api_key_prefix",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "api_key_prefix",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "idx_devices_last_seen",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "last_seen",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "idx_devices_active_deleted",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "is_active",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        },
+        {
+          "value": "deleted_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "idx_devices_weight",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "weight",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "auto_reply_rules",
+      "name": "idx_ar_keyword",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "keyword",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "auto_reply_rules",
+      "name": "idx_ar_active",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "is_active",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "contacts",
+      "name": "idx_contacts_phone",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "phone_number",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "contacts",
+      "name": "idx_contacts_group",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "group_name",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "incoming_sms",
+      "name": "idx_incoming_device_received",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "device_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        },
+        {
+          "value": "received_at",
+          "isExpression": false,
+          "asc": false,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "incoming_sms",
+      "name": "idx_incoming_sender",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "sender_number",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "incoming_sms",
+      "name": "idx_incoming_unread",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "is_read",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "otp_codes",
+      "name": "idx_otp_phone_purpose",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "phone_number",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        },
+        {
+          "value": "purpose",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "otp_codes",
+      "name": "idx_otp_code",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "code",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "otp_codes",
+      "name": "idx_otp_expires",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "expires_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "short_links",
+      "name": "idx_sl_expires",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "expires_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "idx_sms_device_status",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "device_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        },
+        {
+          "value": "status",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "idx_sms_status_priority",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "status",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        },
+        {
+          "value": "priority",
+          "isExpression": false,
+          "asc": false,
+          "nullsFirst": false,
+          "opclass": null
+        },
+        {
+          "value": "created_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "idx_sms_scheduled",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "scheduled_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "idx_sms_retry",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "status",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        },
+        {
+          "value": "next_retry_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "idx_sms_batch",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "batch_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "idx_sms_created",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "created_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "idx_sms_phone",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "phone_number",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "sms_templates",
+      "name": "idx_tpl_name",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "name",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "sms_templates",
+      "name": "idx_tpl_active",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "is_active",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "alert_channels",
+      "name": "idx_alert_channels_active",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "is_active",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_events",
+      "name": "idx_anomaly_events_rule",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "rule_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_events",
+      "name": "idx_anomaly_events_created",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "created_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_events",
+      "name": "idx_anomaly_events_unresolved",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "is_resolved",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_rules",
+      "name": "idx_anomaly_rules_active",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "is_active",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "audit_logs",
+      "name": "idx_audit_action",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "action",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "audit_logs",
+      "name": "idx_audit_actor",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "actor_type",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        },
+        {
+          "value": "actor_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "audit_logs",
+      "name": "idx_audit_created",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "created_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "audit_logs",
+      "name": "idx_audit_ip",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "ip_address",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_history",
+      "name": "idx_autoscale_history_rule",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "rule_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_history",
+      "name": "idx_autoscale_history_created",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "created_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_rules",
+      "name": "idx_autoscale_rules_active",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "is_active",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "hourly_stats",
+      "name": "idx_hourly_date",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "stat_date",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "rate_limits",
+      "name": "idx_rate_window",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "window_start",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "status_incidents",
+      "name": "idx_incidents_status",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "status",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "status_incidents",
+      "name": "idx_incidents_created",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "created_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "uptime_checks",
+      "name": "idx_uptime_type_target",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "check_type",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        },
+        {
+          "value": "target_id",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "uptime_checks",
+      "name": "idx_uptime_created",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "created_at",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "webhooks",
+      "name": "idx_webhooks_active",
+      "nameExplicit": true,
+      "columns": [
+        {
+          "value": "is_active",
+          "isExpression": false,
+          "asc": true,
+          "nullsFirst": false,
+          "opclass": null
+        }
+      ],
+      "isUnique": false,
+      "where": null,
+      "with": "",
+      "method": "btree",
+      "concurrently": false,
+      "entityType": "indexes"
+    },
+    {
+      "schema": "public",
+      "table": "device_commands",
+      "name": "device_commands_device_id_devices_device_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "device_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "devices",
+      "columnsTo": [
+        "device_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "devices_user_id_users_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "user_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "users",
+      "columnsTo": [
+        "id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "SET NULL",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "incoming_sms",
+      "name": "incoming_sms_device_id_devices_device_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "device_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "devices",
+      "columnsTo": [
+        "device_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "sms_requests_device_id_devices_device_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "device_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "devices",
+      "columnsTo": [
+        "device_id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_events",
+      "name": "anomaly_events_rule_id_anomaly_rules_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "rule_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "anomaly_rules",
+      "columnsTo": [
+        "id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_history",
+      "name": "autoscale_history_rule_id_autoscale_rules_id_fkey",
+      "nameExplicit": false,
+      "columns": [
+        "rule_id"
+      ],
+      "schemaTo": "public",
+      "tableTo": "autoscale_rules",
+      "columnsTo": [
+        "id"
+      ],
+      "onUpdate": "NO ACTION",
+      "onDelete": "CASCADE",
+      "entityType": "fks"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "users_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "api_key_history",
+      "name": "api_key_history_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "device_commands",
+      "name": "device_commands_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "device_score_history",
+      "name": "device_score_history_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "devices_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "auto_reply_rules",
+      "name": "auto_reply_rules_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "contacts",
+      "name": "contacts_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "incoming_sms",
+      "name": "incoming_sms_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "otp_codes",
+      "name": "otp_codes_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "phone_blacklist",
+      "name": "phone_blacklist_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "short_links",
+      "name": "short_links_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "sms_requests_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "sms_templates",
+      "name": "sms_templates_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "alert_channels",
+      "name": "alert_channels_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_events",
+      "name": "anomaly_events_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "anomaly_rules",
+      "name": "anomaly_rules_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "api_versions",
+      "name": "api_versions_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "app_profiles",
+      "name": "app_profiles_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "audit_logs",
+      "name": "audit_logs_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_history",
+      "name": "autoscale_history_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "autoscale_rules",
+      "name": "autoscale_rules_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "cost_records",
+      "name": "cost_records_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "daily_stats",
+      "name": "daily_stats_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "hourly_stats",
+      "name": "hourly_stats_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "rate_limits",
+      "name": "rate_limits_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "status_incidents",
+      "name": "status_incidents_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "system_status",
+      "name": "system_status_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "uptime_checks",
+      "name": "uptime_checks_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "webhooks",
+      "name": "webhooks_pkey",
+      "columns": [
+        "id"
+      ],
+      "nameExplicit": false,
+      "entityType": "pks"
+    },
+    {
+      "schema": "public",
+      "table": "cost_records",
+      "name": "uk_cost_date_device",
+      "nameExplicit": true,
+      "columns": [
+        "record_date",
+        "device_id"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "daily_stats",
+      "name": "uk_daily_date_device",
+      "nameExplicit": true,
+      "columns": [
+        "stat_date",
+        "device_id"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "hourly_stats",
+      "name": "uk_hourly_date_hour_device",
+      "nameExplicit": true,
+      "columns": [
+        "stat_date",
+        "stat_hour",
+        "device_id"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "rate_limits",
+      "name": "uk_rate_identifier_endpoint",
+      "nameExplicit": true,
+      "columns": [
+        "identifier",
+        "endpoint"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "users",
+      "name": "users_username_key",
+      "nameExplicit": false,
+      "columns": [
+        "username"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "devices",
+      "name": "devices_device_id_key",
+      "nameExplicit": false,
+      "columns": [
+        "device_id"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "phone_blacklist",
+      "name": "phone_blacklist_phone_number_key",
+      "nameExplicit": false,
+      "columns": [
+        "phone_number"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "short_links",
+      "name": "short_links_short_code_key",
+      "nameExplicit": false,
+      "columns": [
+        "short_code"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "api_versions",
+      "name": "api_versions_version_key",
+      "nameExplicit": false,
+      "columns": [
+        "version"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "system_status",
+      "name": "system_status_component_key",
+      "nameExplicit": false,
+      "columns": [
+        "component"
+      ],
+      "nullsNotDistinct": false,
+      "entityType": "uniques"
+    },
+    {
+      "schema": "public",
+      "table": "sms_requests",
+      "name": "chk_sms_priority",
+      "value": "\"priority\" between 1 and 10",
+      "entityType": "checks"
+    }
+  ]
+}

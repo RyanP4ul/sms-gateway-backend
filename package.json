@@ -1,0 +1,27 @@
+{
+  "name": "backend",
+  "version": "1.0.50",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "bun run --watch src/index.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio",
+    "db:drop": "drizzle-kit drop"
+  },
+  "dependencies": {
+    "@elysia/cors": "^1.4.2",
+    "@elysia/cron": "^1.4.2",
+    "drizzle-orm": "^1.0.0-rc.5",
+    "elysia": "latest",
+    "pg": "^8.23.1",
+    "postgres": "^3.4.9"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.23.1",
+    "bun-types": "latest",
+    "drizzle-kit": "^1.0.0-rc.5"
+  },
+  "module": "src/index.js"
+}
