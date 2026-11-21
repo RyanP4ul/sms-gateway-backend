@@ -24,7 +24,6 @@ export const auth = new Elysia({ name: "auth" }).use(requestContext).macro({
           error: "Admin token not configured",
           code: 500,
         });
-      console.log("Admin token:", env.ADMIN_TOKEN);
       const token = headers["x-admin-token"] ?? "";
       if (!token)
         return status(401, { error: "Admin token required", code: 401 });
